@@ -18,17 +18,29 @@
                     <div class="time">
                     Dodano: <%: post.DataModyfikacji.ToString() %>
                         &nbsp|&nbsp Tagi: 
-                        <% List<string> tags = (((TagModel)((List<TagModel>)ViewData["Tagi"]).Single(i => i.IdPosta == post.Id)).Keywords.Split(", \\".ToCharArray())).Take(4).ToList();
-                           foreach (String tag in tags)
-                           { %>
-                                <a href="" title="Zobacz wszystkie wpisy oznaczone jako: <%: tag %>"><%: tag.ToLower() %></a><%--: (tags.IndexOf(tag) < tags.Count - 1)?",":""--%>
-                        <% } %>
+                        <% 
+                            try
+                            {
+                                List<string> tags = (((TagModel)((List<TagModel>)ViewData["Tagi"]).Single(i => i.IdPosta == post.Id)).Keywords.Split(", \\".ToCharArray())).Take(4).ToList();
+                                foreach (String tag in tags)
+                                { %>
+                                    <a href="" title="Zobacz wszystkie wpisy oznaczone jako: <%: tag %>"><%: tag.ToLower() %></a><%--: (tags.IndexOf(tag) < tags.Count - 1)?",":""--%>
+                             <% }
+                            }
+                            catch (Exception e)
+                            {
+                                if (e.Message.ToString() == "Sequence contains no matching element")
+                                { %>brak przypisanych tagów<% }
+                                else
+                                { %>wystąpił błąd<% }
+                            }
+                            %>
                     </div>  
                     <div style="clear:both;"></div>  
                     <div class="content">
-                        <%: post.Tresc %>
+                        <%= post.Tresc %>
                     </div>
-                    <div class="coments"><a href="Post/Details/<%: post.Id %>" title=""><%: ((List<KomentarzModel>)ViewData["Komentarze"]).Count(i=> i.IdPosta == post.Id).ToString() %> Komentarzy</a></div>
+                    <div class="coments"><a href="Post/Details/<%: post.Id %>" title=""><%: ((List<KomentarzModel>)ViewData["Komentarze"]).Count(i => i.IdPosta == post.Id).ToString()%> Komentarzy</a></div>
                 </div>
 
                 <% if (((List<PostModel>)ViewData["Posty"]).IndexOf(post) < (((List<PostModel>)ViewData["Posty"]).Count - 1))
