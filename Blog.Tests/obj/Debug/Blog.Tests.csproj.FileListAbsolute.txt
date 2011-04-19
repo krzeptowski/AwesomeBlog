@@ -1,0 +1,8 @@
+D:\szkola\sem8\Asynchroniczne Interfejsy WWW\blog\Blog\Blog.Tests\bin\Debug\Blog.Tests.dll.config
+D:\szkola\sem8\Asynchroniczne Interfejsy WWW\blog\Blog\Blog.Tests\bin\Debug\Blog.Tests.dll
+D:\szkola\sem8\Asynchroniczne Interfejsy WWW\blog\Blog\Blog.Tests\bin\Debug\Blog.Tests.pdb
+D:\szkola\sem8\Asynchroniczne Interfejsy WWW\blog\Blog\Blog.Tests\bin\Debug\Blog.dll
+D:\szkola\sem8\Asynchroniczne Interfejsy WWW\blog\Blog\Blog.Tests\bin\Debug\Blog.pdb
+D:\szkola\sem8\Asynchroniczne Interfejsy WWW\blog\Blog\Blog.Tests\obj\Debug\ResolveAssemblyReference.cache
+D:\szkola\sem8\Asynchroniczne Interfejsy WWW\blog\Blog\Blog.Tests\obj\Debug\Blog.Tests.dll
+D:\szkola\sem8\Asynchroniczne Interfejsy WWW\blog\Blog\Blog.Tests\obj\Debug\Blog.Tests.pdb
