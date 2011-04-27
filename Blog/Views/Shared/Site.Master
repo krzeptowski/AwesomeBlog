@@ -28,7 +28,7 @@
                         <div id="posts_content">
 
                             <asp:ContentPlaceHolder ID="PostsContent" runat="server" />
-<%--
+<%-- sample code to style
                             <h1>Coś jest!</h1>
                             <h2>Coś jest!</h2>
                             <h3>Coś jest!</h3>
@@ -95,7 +95,7 @@
   
     
   
-<%--
+<%-- old code
     <div class="page">
         <div id="header">
             <div id="title">
