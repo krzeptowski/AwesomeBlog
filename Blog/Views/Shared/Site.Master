@@ -83,10 +83,16 @@
         </div>
     </div>
     <div id="footer">
+        <div id="abg_logo"></div>
         <div id="footer_top"></div>
-        <div id="footer_content"></div>
+        <div id="footer_content">
+            <div id="footer_menu"><a href="" title="">Home</a> | <a href="" title="">About us</a> | <a href="" title="">Contakt</a> | <a href="" title="">Inne śmieci</a></div>
+            
+        </div>
     </div>
+    
   </div>
+  
     
   
 <%--

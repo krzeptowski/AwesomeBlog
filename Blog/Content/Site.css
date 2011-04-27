@@ -197,3 +197,23 @@ a:hover
 	background:url(img/footer_bg.gif) repeat top left;
 	min-height:130px;
 }
+#footer_menu
+{
+	color: #CBE812;
+	float: right;
+	margin: 10px 50px 5px 5px;
+	font-weight:bold;
+}
+#footer_menu a
+{ color:#CBE812; }
+#footer_menu a:hover
+{ color:#fff; border-top:solid #fff 2px; }
+#abg_logo
+{
+	width:20px;
+	height:145px;
+	position:absolute;
+	left:50%;
+	margin-left:475px;
+	background:url(img/abg_logo.png) no-repeat left bottom;
+}
