@@ -23,12 +23,13 @@
         <div id="page_bg">
             <div id="page_content">
 
-                <div id="posts">
-                    <div id="posts_bottom">
-                        <div id="posts_content">
-
-                            <asp:ContentPlaceHolder ID="PostsContent" runat="server" />
-<%-- sample code to style
+                <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+                
+                <div id="left">
+                    <div id="left_bottom">
+                        <div id="left_content">
+                            <asp:ContentPlaceHolder ID="LeftContent" runat="server" />
+                            <%-- sample code to style
                             <h1>Coś jest!</h1>
                             <h2>Coś jest!</h2>
                             <h3>Coś jest!</h3>
@@ -69,7 +70,6 @@
                                 </div>
                                 <div class="coments"><a href="#" title="">0 Komentarzy</a></div>
                             </div>--%>
-                        
                         </div>
                     </div>
                 </div>
@@ -78,7 +78,7 @@
 
                 <div style="clear:both;"></div>
 
-                <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+                
             </div>
         </div>
     </div>

@@ -4,7 +4,11 @@
 	Blog
 </asp:Content>
 
-<asp:Content ID="Content3" ContentPlaceHolderID="PostsContent" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+    Dodatkowa zawartość :)
+</asp:Content>
+
+<asp:Content ID="Content3" ContentPlaceHolderID="LeftContent" runat="server">
     <% if (((List<PostModel>)ViewData["Posty"]).Count <= 0)
        { %>
             <span class="allert">Brak wpisów w Blogu</span>
@@ -51,8 +55,4 @@
         <% } %> 
     <% } %>
 	
-</asp:Content>
-
-<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    Dodatkowa zawartość :)
 </asp:Content>

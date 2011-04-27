@@ -4,7 +4,7 @@
 	Create
 </asp:Content>
 
-<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="LeftContent" runat="server">
     <h2>Create</h2>
 
     <form method="post" runat="server">

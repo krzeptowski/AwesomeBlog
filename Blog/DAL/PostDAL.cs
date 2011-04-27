@@ -23,6 +23,26 @@ namespace Blog.DAL
             throw new NotImplementedException();
         }
 
+        public int DodajPost(string tytul, string tresc, int status)
+        {
+            using (LinqTodbBlogDataContext context = new LinqTodbBlogDataContext())
+            {
+                Posty p = new Posty
+                {
+                    tytul = tytul,
+                    tresc = tresc,
+                    status = status,
+                    data_dodania = DateTime.Now,
+                    data_modyfikacji = DateTime.Now //dodanie postu to jednocześnie ostatnia modyfikacja
+                };
+
+                context.Posties.InsertOnSubmit(p);
+                context.SubmitChanges();
+
+                return p.id;
+            }
+        }
+
         public PostModel PobierzPost(int id)
         {
             using (LinqTodbBlogDataContext context = new LinqTodbBlogDataContext())
@@ -59,25 +79,7 @@ namespace Blog.DAL
             }
         }
 
-        public int DodajPost(string tytul, string tresc, int status)
-        {
-            using (LinqTodbBlogDataContext context = new LinqTodbBlogDataContext())
-            {
-                Posty p = new Posty
-                {
-                    tytul = tytul,
-                    tresc = tresc,
-                    status = status,
-                    data_dodania = DateTime.Now,
-                    data_modyfikacji = null,
-                };
-
-                context.Posties.InsertOnSubmit(p);
-                context.SubmitChanges();
-
-                return p.id;
-            }
-        }
+        
 
         #endregion
     }

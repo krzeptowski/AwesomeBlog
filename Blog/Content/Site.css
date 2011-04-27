@@ -90,7 +90,7 @@ a:hover
 	min-height:459px;
 	padding:30px 100px;
 }
-#posts
+#left
 {
 	background: url(img/posts_top.gif) no-repeat scroll center top transparent;
 	float: left;
@@ -98,14 +98,14 @@ a:hover
 	padding: 10px 0 0;
 	width: 500px;
 }
-#posts_bottom
+#left_bottom
 {
 	background: url("img/posts_bottom.gif") no-repeat scroll center bottom transparent;
 	margin: 0;
 	padding: 0 0 19px;
 	width: 500px;
 }
-#posts_content
+#left_content
 {
 	background: url("img/posts_content.gif") repeat-y scroll 0 0 transparent;
 	margin: 0;
@@ -165,13 +165,13 @@ a:hover
 {
 	padding: 10px 0 0 10px;
 }
-#posts_content hr
+#left_content hr
 {
 	background: none repeat scroll 0 0 #414331;
 	color: #FFFFFF;
 	height: 1px;
 }
-#posts_content .allert
+#left_content .allert
 {
 	border-left: 3px solid #AAC028;
 	border-right: 3px solid #AAC028;
