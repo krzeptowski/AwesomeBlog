@@ -11,10 +11,13 @@
   
   <div id="whole">
     <div id="top">
+        <div id="user">
+            <% Html.RenderPartial("LogOnUserControl"); %>
+        </div>
         <h1><% Html.RenderPartial("SiteTitle"); %></h1>
     </div>
     <div id="menu">
-        <a href="#" title="aaa">Home</a>
+        <a href="/home" title="Strona główna">Strona główna</a>
         <a href="#" title="aaa">About Us</a>
         <a href="#" title="aaa">Archives</a>
         <a href="#" title="aaa">Conact Us</a>

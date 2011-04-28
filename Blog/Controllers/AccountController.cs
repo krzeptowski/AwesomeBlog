@@ -55,7 +55,7 @@ namespace Blog.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", "The user name or password provided is incorrect.");
+                    ModelState.AddModelError("", "Nazwa użytkownika lub hasło jest niepoprawne.");
                 }
             }
 
@@ -131,7 +131,7 @@ namespace Blog.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", "The current password is incorrect or the new password is invalid.");
+                    ModelState.AddModelError("", "Obecne hasło jest niwłaściwe.");
                 }
             }
 

@@ -34,10 +34,16 @@ a:hover
 
 #top
 {
-    height:180px;    
+    height:210px;    
 	overflow:hidden;
     background:url(img/top.jpg) no-repeat top left;
-    padding: 30px 0 0;
+    /*padding: 30px 0 0;*/
+}
+
+#user
+{
+    float:left;
+    margin:5px 0 0 15px;
 }
 
 #top h1
@@ -47,6 +53,7 @@ a:hover
 	float: right;
 	font-size: 36px;
 	padding: 10px 50px 15px 20px;
+	margin-top:30px;
 }
 
 #menu
@@ -94,7 +101,7 @@ a:hover
 {
 	background: url(img/posts_top.gif) no-repeat scroll center top transparent;
 	float: left;
-	margin: 20px 41px 0 0;
+	margin-right:41px;
 	padding: 10px 0 0;
 	width: 500px;
 }
@@ -186,6 +193,8 @@ a:hover
 	position: relative;
 	text-decoration: blink;
 }
+.inside_left_content
+{padding:0 20px;}
 
 #footer_top
 {
@@ -217,3 +226,11 @@ a:hover
 	margin-left:475px;
 	background:url(img/abg_logo.png) no-repeat left bottom;
 }
+
+.fieldset
+{border: 1px solid #4E4421; padding:5px;}
+.fieldset legend
+{padding:0 5px;}
+
+.error
+{color:#ff0000;}
