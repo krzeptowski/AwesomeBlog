@@ -81,27 +81,6 @@ namespace Blog.DAL
                 return l;
             }
         }
-        
-
-        public int DodajPost(string tytul, string tresc, int status)
-        {
-            using (LinqTodbBlogDataContext context = new LinqTodbBlogDataContext())
-            {
-                Posty p = new Posty
-                {
-                    tytul = tytul,
-                    tresc = tresc,
-                    status = status,
-                    data_dodania = DateTime.Now,
-                    data_modyfikacji = DateTime.Now,
-                };
-
-                context.Posties.InsertOnSubmit(p);
-                context.SubmitChanges();
-
-                return p.id;
-            }
-        }
 
         public void DodajPost(string tytul, string tresc, int status, string tagi, string opis)
         {
