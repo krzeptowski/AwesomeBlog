@@ -1,2 +1,2 @@
-Blog.sln -diff
-Blog.suo -diff
+Blog.sln merge=ours
+Blog.suo merge=ours
