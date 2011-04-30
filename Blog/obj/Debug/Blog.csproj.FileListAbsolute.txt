@@ -1,0 +1,18 @@
+D:\szkola\sem8\Asynchroniczne Interfejsy WWW\blog\Blog\Blog\bin\Blog.dll
+D:\szkola\sem8\Asynchroniczne Interfejsy WWW\blog\Blog\Blog\bin\Blog.pdb
+D:\szkola\sem8\Asynchroniczne Interfejsy WWW\blog\Blog\Blog\obj\Debug\ResolveAssemblyReference.cache
+D:\szkola\sem8\Asynchroniczne Interfejsy WWW\blog\Blog\Blog\obj\Debug\Blog.dll
+D:\szkola\sem8\Asynchroniczne Interfejsy WWW\blog\Blog\Blog\obj\Debug\Blog.pdb
+<<<<<<< HEAD
+D:\szkola\sem8\Asynchroniczne Interfejsy WWW\AwesomeBlog\Blog\bin\Blog.dll
+D:\szkola\sem8\Asynchroniczne Interfejsy WWW\AwesomeBlog\Blog\bin\Blog.pdb
+D:\szkola\sem8\Asynchroniczne Interfejsy WWW\AwesomeBlog\Blog\obj\Debug\ResolveAssemblyReference.cache
+D:\szkola\sem8\Asynchroniczne Interfejsy WWW\AwesomeBlog\Blog\obj\Debug\Blog.dll
+D:\szkola\sem8\Asynchroniczne Interfejsy WWW\AwesomeBlog\Blog\obj\Debug\Blog.pdb
+=======
+E:\nauka\sem8\zarzadzanie_projektami_informatycznymi\jestgit\AwesomeBlog\Blog\bin\Blog.dll
+E:\nauka\sem8\zarzadzanie_projektami_informatycznymi\jestgit\AwesomeBlog\Blog\bin\Blog.pdb
+E:\nauka\sem8\zarzadzanie_projektami_informatycznymi\jestgit\AwesomeBlog\Blog\obj\Debug\ResolveAssemblyReference.cache
+E:\nauka\sem8\zarzadzanie_projektami_informatycznymi\jestgit\AwesomeBlog\Blog\obj\Debug\Blog.dll
+E:\nauka\sem8\zarzadzanie_projektami_informatycznymi\jestgit\AwesomeBlog\Blog\obj\Debug\Blog.pdb
+>>>>>>> ffd2df8f610d8dbc5135d3b5a901e9ff1f0e467c
