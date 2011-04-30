@@ -1,2 +1,5 @@
-Blog.sln
-Blog.suo
+*.csproj.user
+Blog/obj/*
+Blog/bin/*
+*.ncb
+*.suo

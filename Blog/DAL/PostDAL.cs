@@ -32,7 +32,7 @@ namespace Blog.DAL
             {
                 Posty p = new Posty
                 {
-                    tytul = tytul,
+                    tytul = tytul, 
                     tresc = tresc,
                     status = status,
                     data_dodania = DateTime.Now,
