@@ -7,20 +7,26 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <h2>Create</h2>
 
-    <form method="post" runat="server">
-        <asp:Label ID="Label2" runat="server" Text="Tytul" ClientIDMode="Static"></asp:Label>
-        <asp:TextBox ID="tbTytul" runat="server" ClientIDMode="Static"></asp:TextBox><br />
+<% using (Html.BeginForm("Create", "Post"))
+       {%>
+    <fieldset>
+        <%= Html.Label("Tytul") %><br />
+        <%= Html.TextBox("Tytul", "") %><br />
 
-        <asp:Label ID="Label3" runat="server" Text="Tresc" ClientIDMode="Static"></asp:Label>
-        <asp:TextBox ID="tbTresc" runat="server" Height="104px" TextMode="MultiLine" 
-            Width="230px" ClientIDMode="Static"></asp:TextBox><br />
+        <%= Html.Label("Tresc") %><br />
+        <%= Html.TextBox("Tresc", "")%><br />
 
-        <asp:CheckBox ID="cbStatus" runat="server" Text="Ukryc?" /><br />
+        <%= Html.Label("Status") %><br />
+        <%= Html.CheckBox("Status", "")%><br />
 
-        <asp:Label ID="Label1" runat="server" Text="Tagi"></asp:Label>
-        <asp:TextBox ID="tbTagi" runat="server" Width="232px"></asp:TextBox><br />
+        <%= Html.Label("Tagi") %><br />
+        <%= Html.TextBox("Tagi", "")%><br />
 
-        <asp:Button ID="btSubmit" runat="server" Text="Submit" ClientIDMode="Static" />
-    </form>
+        <%= Html.Label("Opis") %><br />
+        <%= Html.TextBox("Opis", "")%><br />
+
+        <input value="Submit" type="submit" />
+    </fieldset>
+    <% } %>
 
 </asp:Content>

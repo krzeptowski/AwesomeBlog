@@ -1,25 +1,31 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<dynamic>" %>
-
+<%@ Import Namespace="Blog.Models" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
 	Edit
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-    <form id="Form2" method="post" runat="server">
-        <asp:Label ID="Label2" runat="server" Text="" ClientIDMode="Static"></asp:Label>
-        <asp:TextBox ID="tbTytul" runat="server" ClientIDMode="Static"></asp:TextBox><br />
+    <% using (Html.BeginForm("Edit", "Post"))
+       {%>
+    <fieldset>
+        <%= Html.Label("Tytul") %><br />
+        <%= Html.TextBox("Tytul", ((PostModel)ViewData["post"]).Tytul) %><br />
         
-        <asp:Label ID="Label3" runat="server" Text="Tresc" ClientIDMode="Static"></asp:Label>
-        <asp:TextBox ID="tbTresc" runat="server" Height="104px" TextMode="MultiLine" 
-            Width="230px" ClientIDMode="Static"></asp:TextBox><br />
+        <%= Html.Label("Tresc") %><br />
+        <%= Html.TextBox("Tresc", ((PostModel)ViewData["post"]).Tresc) %><br />
 
-        <asp:CheckBox ID="cbStatus" runat="server" Text="Ukryc?" /><br />
+        <%= Html.Label("Status") %><br />
+        <%= Html.CheckBox("Status", ((PostModel)ViewData["post"]).Status) %><br />
 
-        <asp:Label ID="Label1" runat="server" Text="Tagi"></asp:Label>
-        <asp:TextBox ID="tbTagi" runat="server" Width="232px"></asp:TextBox><br />
+        <%= Html.Label("Tagi") %><br />
+        <%= Html.TextBox("Tagi", ((TagModel)ViewData["tagi"]).Keywords) %><br />
 
-        <asp:Button ID="btSubmit" runat="server" Text="Submit" ClientIDMode="Static" />
-    </form>
+        <%= Html.Label("Opis") %><br />
+        <%= Html.TextBox("Opis", ((TagModel)ViewData["tagi"]).Desc) %><br />
+
+        <input value="Submit" type="submit" />
+    </fieldset>
+    <% } %>
 
 </asp:Content>

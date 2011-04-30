@@ -12,6 +12,7 @@ namespace Blog.DAL
         TagModel PobierzTagPosta(int id);
         List<TagModel> PobierzWszystkie();
         void DodajTag(int idPosta, string keywords, string desc);
+        void EdytujTag(int idPosta, string keywords);
     }
 
     public class TagDAL : ITag
@@ -60,6 +61,18 @@ namespace Blog.DAL
                 };
 
                 context.Tagis.InsertOnSubmit(t);
+                context.SubmitChanges();
+            }
+        }
+
+        public void EdytujTag(int idPosta, string keywords)
+        {
+            using (LinqTodbBlogDataContext context = new LinqTodbBlogDataContext())
+            {
+                var tag = context.Tagis.Single(t => t.id_posta == idPosta);
+
+                tag.keywords = keywords;
+
                 context.SubmitChanges();
             }
         }
