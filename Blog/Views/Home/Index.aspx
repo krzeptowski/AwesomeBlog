@@ -1,43 +1,58 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<dynamic>" %>
 <%@ Import Namespace="Blog.Models" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
-    Home Page
+	Blog
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <%if (((List<PostModel>)ViewData["Posty"]).Count > 0) {%>
-    <table border="1">
-        <tr>
-            <th>Data dodania</th>
-            <th>Tresc</th>
-            <th>Tytul</th>
-            <th>Status</th>
-            <th>Data Modyfikacji</th>
-            <th>Tagi</th>
-            <th>Ilosc komentarzy</th>
-        </tr>
-        <% foreach (PostModel each in (List<PostModel>)ViewData["Posty"])
-           {
-               TagModel t = null;
-               foreach(TagModel eachT in (List<TagModel>)ViewData["Tagi"])
-               {
-                   if(eachT.IdPosta == each.Id)
-                       t = eachT;
-               }
-               String[] tags = null;
-               if(t != null)
-                   tags = t.Keywords.Split(", \\".ToCharArray(), 3);
-        %>
-            <tr>
-                <td><%: each.DataDodania %></td>
-                <td><%: each.Tytul%></td>
-                <td><%: each.Tresc%></td>
-                <td><%: each.Status%></td>
-                <td><%: each.DataModyfikacji%></td>
-                <td><%: tags != null ? tags[0] : "no tags" %></td>
-                <td><%: ((List<KomentarzModel>)ViewData["Komentarze"]).Count%></td>
-            </tr>
-        <%} %>
-    </table>
-    <%} %>
+    Dodatkowa zawartość :)
+</asp:Content>
+
+<asp:Content ID="Content3" ContentPlaceHolderID="LeftContent" runat="server">
+    <% if (((List<PostModel>)ViewData["Posty"]).Count <= 0)
+       { %>
+            <span class="allert">Brak wpisów w Blogu</span>
+    <% }
+       else
+       {
+           foreach (PostModel post in (List<PostModel>)ViewData["Posty"])
+           { %>
+                <div class="post">
+                    <h2><a href="Post/Details/<%: post.Id %>" title="<%: post.Tytul %>"><%: post.Tytul %></a></h2>
+                    <div class="time">
+                    Dodano: <%: post.DataModyfikacji.ToString() %>
+                        &nbsp|&nbsp Tagi: 
+                        <% 
+                            try
+                            {
+                                List<string> tags = (((TagModel)((List<TagModel>)ViewData["Tagi"]).Single(i => i.IdPosta == post.Id)).Keywords.Split(", \\".ToCharArray())).Take(4).ToList();
+                                foreach (String tag in tags)
+                                { %>
+                                    <a href="" title="Zobacz wszystkie wpisy oznaczone jako: <%: tag %>"><%: tag.ToLower() %></a><%--: (tags.IndexOf(tag) < tags.Count - 1)?",":""--%>
+                             <% }
+                            }
+                            catch (Exception e)
+                            {
+                                if (e.Message.ToString() == "Sequence contains no matching element")
+                                { %>brak przypisanych tagów<% }
+                                else
+                                { %>wystąpił błąd<% }
+                            }
+                            %>
+                    </div>  
+                    <div style="clear:both;"></div>  
+                    <div class="content">
+                        <%= post.Tresc %>
+                    </div>
+                    <div class="coments"><a href="Post/Details/<%: post.Id %>" title=""><%: ((List<KomentarzModel>)ViewData["Komentarze"]).Count(i => i.IdPosta == post.Id).ToString()%> Komentarzy</a></div>
+                </div>
+
+                <% if (((List<PostModel>)ViewData["Posty"]).IndexOf(post) < (((List<PostModel>)ViewData["Posty"]).Count - 1))
+                   { %>
+                        <hr />
+                <% } %>
+
+        <% } %> 
+    <% } %>
+	
 </asp:Content>

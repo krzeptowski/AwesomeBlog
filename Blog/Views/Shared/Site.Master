@@ -3,25 +3,103 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title><asp:ContentPlaceHolder ID="TitleContent" runat="server" /></title>
+    <title>Kozacki blog: <asp:ContentPlaceHolder ID="TitleContent" runat="server" /></title>
     <link href="../../Content/Site.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
-    <div id=whole>
-        <div id=top>
-            <div id=logo>
-                <% Html.RenderPartial(@"..\TitleSite"); %>
-            </div>
-            <div id=menu>
-            <a href="asasa">Home</a>
-            <a href="asasa">About</a>
+  
+  <div id="whole">
+    <div id="top">
+        <div id="user">
+            <% Html.RenderPartial("LogOnUserControl"); %>
+        </div>
+        <h1><% Html.RenderPartial("SiteTitle"); %></h1>
+    </div>
+    <div id="menu">
+        <a href="/home" title="Strona główna">Strona główna</a>
+        <a href="#" title="aaa">About Us</a>
+        <a href="#" title="aaa">Archives</a>
+        <a href="#" title="aaa">Conact Us</a>
+    </div>
+    <div id="page">
+        <div id="page_bg">
+            <div id="page_content">
+
+                <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+                
+                <div id="left">
+                    <div id="left_bottom">
+                        <div id="left_content">
+                            <asp:ContentPlaceHolder ID="LeftContent" runat="server" />
+                            <%-- sample code to style
+                            <h1>Coś jest!</h1>
+                            <h2>Coś jest!</h2>
+                            <h3>Coś jest!</h3>
+                            <span class="allert">Brak wpisów w Blogu</span>
+
+                            <div class="post">
+                                <h2><a href="" title="">Tytuł newsa jakis sobie jest</a></h2>
+                                <div class="time">
+                                    Data: 2011-04-14 : 13:45; 
+                                    tags: 
+                                    <a href="" title="Zobacz wszystkie wpisy oznaczone jako: ">ahuihuibc</a>,
+                                    <a href="" title="Zobacz wszystkie wpisy oznaczone jako: ">dhuihef</a>,
+                                    <a href="" title="Zobacz wszystkie wpisy oznaczone jako: ">ghhuhi</a>
+                                </div>
+                                <div style="clear:both;"></div>
+                                <div class="content">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sagittis venenatis tincidunt. Duis vehicula, justo ac congue rutrum, diam ipsum volutpat libero, vitae cursus lorem neque a diam. Nam nisi dui, tincidunt eget fringilla id, placerat sit amet massa. Praesent sed sapien vel nisl malesuada consequat sit amet sed nunc. Mauris et enim a leo pulvinar tincidunt sit amet id tortor. Sed sit amet massa enim. Nunc quam magna, mollis in rhoncus in, adipiscing a dui. Nulla sit amet pharetra felis. Curabitur lacus odio, pharetra placerat tempus nec, convallis a dui. Quisque libero tellus, tincidunt nec rutrum et, laoreet vitae ligula. Morbi luctus dignissim molestie. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                    <p>Maecenas urna lorem, mollis ut mattis nec, tincidunt et nunc. Donec eu mauris nec augue malesuada adipiscing ac in lorem. In at varius mauris. In interdum ultricies pellentesque. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vivamus ultricies luctus mi eu tincidunt. Quisque nec lacus sem, sit amet cursus lorem. Vestibulum non adipiscing augue. Aliquam et mauris mi, ut placerat lectus. Suspendisse potenti. </p>
+                                </div>
+                                <div class="coments"><a href="#" title="">0 Komentarzy</a></div>
+                            </div>
+
+                            <hr />
+
+                            <div class="post">
+                                <h2><a href="" title="">Tytuł newsa jakis sobie jest</a></h2>
+                                <div class="time">
+                                    Data: 2011-04-14 : 13:45; 
+                                    tags: 
+                                    <a href="" title="Zobacz wszystkie wpisy oznaczone jako: ">ahuihuibc</a>,
+                                    <a href="" title="Zobacz wszystkie wpisy oznaczone jako: ">dhuihef</a>,
+                                    <a href="" title="Zobacz wszystkie wpisy oznaczone jako: ">ghhuhi</a>
+                                </div>
+                                <div style="clear:both;"></div>
+                                <div class="content">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sagittis venenatis tincidunt. Duis vehicula, justo ac congue rutrum, diam ipsum volutpat libero, vitae cursus lorem neque a diam. Nam nisi dui, tincidunt eget fringilla id, placerat sit amet massa. Praesent sed sapien vel nisl malesuada consequat sit amet sed nunc. Mauris et enim a leo pulvinar tincidunt sit amet id tortor. Sed sit amet massa enim. Nunc quam magna, mollis in rhoncus in, adipiscing a dui. Nulla sit amet pharetra felis. Curabitur lacus odio, pharetra placerat tempus nec, convallis a dui. Quisque libero tellus, tincidunt nec rutrum et, laoreet vitae ligula. Morbi luctus dignissim molestie. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                    <p>Maecenas urna lorem, mollis ut mattis nec, tincidunt et nunc. Donec eu mauris nec augue malesuada adipiscing ac in lorem. In at varius mauris. In interdum ultricies pellentesque. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vivamus ultricies luctus mi eu tincidunt. Quisque nec lacus sem, sit amet cursus lorem. Vestibulum non adipiscing augue. Aliquam et mauris mi, ut placerat lectus. Suspendisse potenti. </p>
+                                </div>
+                                <div class="coments"><a href="#" title="">0 Komentarzy</a></div>
+                            </div>--%>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="prawa_kolumna_do_zrobienia" style="float: right;">Prawa strona</div>
+
+                <div style="clear:both;"></div>
+
+                
             </div>
         </div>
     </div>
-    <asp:ContentPlaceHolder ID="MainContent" runat="server" />
-<%--    <div class="page">
-
+    <div id="footer">
+        <div id="abg_logo"></div>
+        <div id="footer_top"></div>
+        <div id="footer_content">
+            <div id="footer_menu"><a href="" title="">Home</a> | <a href="" title="">About us</a> | <a href="" title="">Contakt</a> | <a href="" title="">Inne śmieci</a></div>
+            
+        </div>
+    </div>
+    
+  </div>
+  
+    
+  
+<%-- old code
+    <div class="page">
         <div id="header">
             <div id="title">
                 <h1>My MVC Application</h1>
@@ -42,11 +120,12 @@
         </div>
 
         <div id="main">
-            
+            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
 
             <div id="footer">
             </div>
         </div>
-    </div>--%>
+    </div>
+--%>
 </body>
 </html>

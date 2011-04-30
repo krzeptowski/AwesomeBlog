@@ -12,62 +12,62 @@ namespace Blog.Models
 {
 
     #region Models
-    [PropertiesMustMatch("NewPassword", "ConfirmPassword", ErrorMessage = "The new password and confirmation password do not match.")]
+    [PropertiesMustMatch("NewPassword", "ConfirmPassword", ErrorMessage = "Nowe hasło oraz potwierdzenie nowego hasła nie może się różnić!")]
     public class ChangePasswordModel
     {
         [Required]
         [DataType(DataType.Password)]
-        [DisplayName("Current password")]
+        [DisplayName("Aktualne hasło")]
         public string OldPassword { get; set; }
 
         [Required]
         [ValidatePasswordLength]
         [DataType(DataType.Password)]
-        [DisplayName("New password")]
+        [DisplayName("Nowe hasło")]
         public string NewPassword { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
-        [DisplayName("Confirm new password")]
+        [DisplayName("Potwierdź nowe hasło")]
         public string ConfirmPassword { get; set; }
     }
 
     public class LogOnModel
     {
-        [Required]
-        [DisplayName("User name")]
+        [Required(ErrorMessage="Nazwa użytkownika jest wymagana")]
+        [DisplayName("Nazwa użytkownika")]
         public string UserName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage="Hasło jest wymagane")]
         [DataType(DataType.Password)]
-        [DisplayName("Password")]
+        [DisplayName("Hasło")]
         public string Password { get; set; }
 
-        [DisplayName("Remember me?")]
+        [DisplayName("Zapamiętać logowanie?")]
         public bool RememberMe { get; set; }
     }
 
-    [PropertiesMustMatch("Password", "ConfirmPassword", ErrorMessage = "The password and confirmation password do not match.")]
+    [PropertiesMustMatch("Password", "ConfirmPassword", ErrorMessage = "Wprowadzone hasło oraz potwierdzenie hasła nie może się różnić!")]
     public class RegisterModel
     {
         [Required]
-        [DisplayName("User name")]
+        [DisplayName("Nazwa użytkownika")]
         public string UserName { get; set; }
 
         [Required]
         [DataType(DataType.EmailAddress)]
-        [DisplayName("Email address")]
+        [DisplayName("Adres e-mail")]
         public string Email { get; set; }
 
         [Required]
         [ValidatePasswordLength]
         [DataType(DataType.Password)]
-        [DisplayName("Password")]
+        [DisplayName("Hasło")]
         public string Password { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
-        [DisplayName("Confirm password")]
+        [DisplayName("Potwierdź nowe hasło")]
         public string ConfirmPassword { get; set; }
     }
     #endregion
@@ -111,17 +111,17 @@ namespace Blog.Models
 
         public bool ValidateUser(string userName, string password)
         {
-            if (String.IsNullOrEmpty(userName)) throw new ArgumentException("Value cannot be null or empty.", "userName");
-            if (String.IsNullOrEmpty(password)) throw new ArgumentException("Value cannot be null or empty.", "password");
+            if (String.IsNullOrEmpty(userName)) throw new ArgumentException("Agrument nie może być pusty.", "userName");
+            if (String.IsNullOrEmpty(password)) throw new ArgumentException("Argument nie może być pusty.", "password");
 
             return _provider.ValidateUser(userName, password);
         }
 
         public MembershipCreateStatus CreateUser(string userName, string password, string email)
         {
-            if (String.IsNullOrEmpty(userName)) throw new ArgumentException("Value cannot be null or empty.", "userName");
-            if (String.IsNullOrEmpty(password)) throw new ArgumentException("Value cannot be null or empty.", "password");
-            if (String.IsNullOrEmpty(email)) throw new ArgumentException("Value cannot be null or empty.", "email");
+            if (String.IsNullOrEmpty(userName)) throw new ArgumentException("Argument nie może być pusty.", "userName");
+            if (String.IsNullOrEmpty(password)) throw new ArgumentException("Argument nie może być pusty.", "password");
+            if (String.IsNullOrEmpty(email)) throw new ArgumentException("Argument nie może być pusty.", "email");
 
             MembershipCreateStatus status;
             _provider.CreateUser(userName, password, email, null, null, true, null, out status);
@@ -130,9 +130,9 @@ namespace Blog.Models
 
         public bool ChangePassword(string userName, string oldPassword, string newPassword)
         {
-            if (String.IsNullOrEmpty(userName)) throw new ArgumentException("Value cannot be null or empty.", "userName");
-            if (String.IsNullOrEmpty(oldPassword)) throw new ArgumentException("Value cannot be null or empty.", "oldPassword");
-            if (String.IsNullOrEmpty(newPassword)) throw new ArgumentException("Value cannot be null or empty.", "newPassword");
+            if (String.IsNullOrEmpty(userName)) throw new ArgumentException("Argument nie może być pusty.", "userName");
+            if (String.IsNullOrEmpty(oldPassword)) throw new ArgumentException("Argument nie może być pusty.", "oldPassword");
+            if (String.IsNullOrEmpty(newPassword)) throw new ArgumentException("Argument nie może być pusty.", "newPassword");
 
             // The underlying ChangePassword() will throw an exception rather
             // than return false in certain failure scenarios.
@@ -162,7 +162,7 @@ namespace Blog.Models
     {
         public void SignIn(string userName, bool createPersistentCookie)
         {
-            if (String.IsNullOrEmpty(userName)) throw new ArgumentException("Value cannot be null or empty.", "userName");
+            if (String.IsNullOrEmpty(userName)) throw new ArgumentException("Argument nie może być pusty.", "userName");
 
             FormsAuthentication.SetAuthCookie(userName, createPersistentCookie);
         }
@@ -184,16 +184,16 @@ namespace Blog.Models
             switch (createStatus)
             {
                 case MembershipCreateStatus.DuplicateUserName:
-                    return "Username already exists. Please enter a different user name.";
+                    return "Istnieje użytkownik o podanej nazwie. Wprowadź inną nazwę użytkownika.";
 
                 case MembershipCreateStatus.DuplicateEmail:
-                    return "A username for that e-mail address already exists. Please enter a different e-mail address.";
+                    return "Istnieje użytkownik o podanym adresie e-mail. Wprowadź inny adres e-mail.";
 
                 case MembershipCreateStatus.InvalidPassword:
-                    return "The password provided is invalid. Please enter a valid password value.";
+                    return "Hasło jest niewłaściwe. Wprowadź pasujące hasło.";
 
                 case MembershipCreateStatus.InvalidEmail:
-                    return "The e-mail address provided is invalid. Please check the value and try again.";
+                    return "Adres e-mail jest nieprawidłowy. Wprowadź właściwy adres.";
 
                 case MembershipCreateStatus.InvalidAnswer:
                     return "The password retrieval answer provided is invalid. Please check the value and try again.";
@@ -202,16 +202,16 @@ namespace Blog.Models
                     return "The password retrieval question provided is invalid. Please check the value and try again.";
 
                 case MembershipCreateStatus.InvalidUserName:
-                    return "The user name provided is invalid. Please check the value and try again.";
+                    return "Nazwa użytkownika jest nieprawidłowa. Wprowadź właściwy login.";
 
                 case MembershipCreateStatus.ProviderError:
-                    return "The authentication provider returned an error. Please verify your entry and try again. If the problem persists, please contact your system administrator.";
+                    return "Wystąpił problem z autoryzacją. Spróbuj zalogować się ponownie. Jeżeli problem będzie się powtarzać skontaktuj się z administracją.";
 
                 case MembershipCreateStatus.UserRejected:
-                    return "The user creation request has been canceled. Please verify your entry and try again. If the problem persists, please contact your system administrator.";
+                    return "Żądanie użytkownika zostało odrzucone. Sprawdź dane logowania i spróbuj zalogować się ponownie. Jeżeli problem będzie się powtarzać skontaktuj się z administracją.";
 
                 default:
-                    return "An unknown error occurred. Please verify your entry and try again. If the problem persists, please contact your system administrator.";
+                    return "Wystąpił nieznany błąd. Jeżeli ten komunikat będzie się powtarzać skontaktuj się z administracją.";
             }
         }
     }

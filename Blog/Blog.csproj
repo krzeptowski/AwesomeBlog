@@ -91,11 +91,24 @@
     <Content Include="App_Data\dbBlog_log.ldf">
       <DependentUpon>dbBlog.mdf</DependentUpon>
     </Content>
+    <Content Include="Content\img\abg_logo.png" />
+    <Content Include="Content\img\arrow.jpg" />
+    <Content Include="Content\img\footer_bg.gif" />
+    <Content Include="Content\img\footer_top.gif" />
+    <Content Include="Content\img\menu_bg.jpg" />
+    <Content Include="Content\img\page_bg.gif" />
+    <Content Include="Content\img\page_bg.jpg" />
+    <Content Include="Content\img\posts_bottom.gif" />
+    <Content Include="Content\img\posts_content.gif" />
+    <Content Include="Content\img\posts_top.gif" />
+    <Content Include="Content\img\post_time.gif" />
+    <Content Include="Content\img\post_time.png" />
+    <Content Include="Content\img\top.jpg" />
     <Content Include="Global.asax" />
     <Content Include="Views\Post\Create.aspx" />
     <Content Include="Views\Post\Details.aspx" />
     <Content Include="Views\Post\Edit.aspx" />
-    <Content Include="Views\TitleSite.ascx" />
+    <Content Include="Views\Shared\SiteTitle.ascx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -120,7 +133,6 @@
     <Content Include="Views\Account\ChangePasswordSuccess.aspx" />
     <Content Include="Views\Account\LogOn.aspx" />
     <Content Include="Views\Account\Register.aspx" />
-    <Content Include="Views\Home\About.aspx" />
     <Content Include="Views\Home\Index.aspx" />
     <Content Include="Views\Shared\Error.aspx" />
     <Content Include="Views\Shared\LogOnUserControl.ascx" />
@@ -142,6 +154,7 @@
       <DependentUpon>LinqTodbBlog.dbml</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
