@@ -145,6 +145,7 @@
       <LastGenOutput>LinqTodbBlog.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
+    <Content Include="Views\Account\web.config" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
