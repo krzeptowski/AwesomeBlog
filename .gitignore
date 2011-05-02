@@ -1,0 +1,5 @@
+*.csproj.user
+Blog/obj/*
+Blog/bin/*
+*.ncb
+*.suo

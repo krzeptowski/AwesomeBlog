@@ -106,6 +106,7 @@
     <Content Include="Content\img\top.jpg" />
     <Content Include="Global.asax" />
     <Content Include="Views\Post\Create.aspx" />
+    <Content Include="Views\Post\Details.aspx" />
     <Content Include="Views\Post\Edit.aspx" />
     <Content Include="Views\Shared\SiteTitle.ascx" />
     <Content Include="Web.config" />

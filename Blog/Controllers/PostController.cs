@@ -36,6 +36,10 @@ namespace Blog.Controllers
 
         public ActionResult Details(int id)
         {
+            ViewData["Post"] = _posty.PobierzPost(id);
+            ViewData["Tagi"] = _tagi.PobierzTagPosta(id);
+            ViewData["Komentarze"] = _komentarze.PobierzDlaID(id);
+
             return View();
         }
 
@@ -55,14 +59,15 @@ namespace Blog.Controllers
         {
             try
             {
-                string tytul = collection["ctl00$MainContent$tbTytul"];
-                string tresc = collection["ctl00$MainContent$tbTresc"];
-                int status = Convert.ToInt16(collection["ctl00$MainContent$cbStatus"]);
-                string tagi = collection["ctl00$MainContent$tbTagi"];
+                string tytul = collection["Tytul"];
+                string tresc = collection["Tresc"];
+                int status = Convert.ToInt16(Convert.ToBoolean(collection["Status"]));
+                string tagi = collection["Tagi"];
+                string opis = collection["Opis"];
 
-                int postID = _posty.DodajPost(tytul, tresc, status);
-                _tagi.DodajTag(postID, tagi, tresc.Substring(0, (tresc.Length > 20) ? 20 : tresc.Length));
-                return RedirectToAction("Index");
+                _posty.DodajPost(tytul, tresc, status, tagi, opis);
+
+                return RedirectToAction("../Home/Index");
             }
             catch
             {
@@ -78,8 +83,15 @@ namespace Blog.Controllers
             PostModel post = _posty.PobierzPost(id);
             TagModel tagi = _tagi.PobierzTagPosta(post.Id);
 
-            ViewData["Tytul"] = post.Tytul;
+            if(post == null)
+                return RedirectToAction("../Home/Index");//no such post
 
+            if(tagi == null)
+                return RedirectToAction("../Home/Index");//no such tag
+
+
+            ViewData["post"] = post;
+            ViewData["tagi"] = tagi;
 
             return View();
         }
@@ -92,8 +104,15 @@ namespace Blog.Controllers
         {
             try
             {
-                
-                return RedirectToAction("Index");
+                string tytul = collection["Tytul"];
+                string tresc = collection["Tresc"];
+                int status = Convert.ToInt16(Convert.ToBoolean(collection["Status"]));
+                string tagi = collection["Tagi"];
+                string opis = collection["Opis"];
+
+                _posty.EdytujPost(id, tytul, tresc, status, tagi, opis);
+
+                return RedirectToAction("../Home/Index");
             }
             catch
             {
@@ -118,8 +137,8 @@ namespace Blog.Controllers
             try
             {
                 // TODO: Add delete logic here
- 
-                return RedirectToAction("Index");
+
+                return RedirectToAction("../Home/Index");
             }
             catch
             {

@@ -12,6 +12,9 @@ namespace Blog.DAL
         PostModel PobierzPost(int id);
         List<PostModel> PobierzWszystkie();
         int DodajPost(string tytul, string tresc, int status);
+        void DodajPost(string tytul, string tresc, int status, string tagi, string opis);
+        void EdytujPost(int id, string tytul, string tresc, int status);
+        void EdytujPost(int id, string tytul, string tresc, int status, string tagi, string opis);
     }
 
     public class PostDAL : IPost
@@ -29,7 +32,7 @@ namespace Blog.DAL
             {
                 Posty p = new Posty
                 {
-                    tytul = tytul,
+                    tytul = tytul, 
                     tresc = tresc,
                     status = status,
                     data_dodania = DateTime.Now,
@@ -79,7 +82,65 @@ namespace Blog.DAL
             }
         }
 
-        
+        public void DodajPost(string tytul, string tresc, int status, string tagi, string opis)
+        {
+            using (LinqTodbBlogDataContext context = new LinqTodbBlogDataContext())
+            {
+                Posty p = new Posty
+                {
+                    tytul = tytul,
+                    tresc = tresc,
+                    status = status,
+                    data_dodania = DateTime.Now,
+                    data_modyfikacji = DateTime.Now,
+                };
+                context.Posties.InsertOnSubmit(p);
+                context.SubmitChanges();
+
+                Tagi t = new Tagi
+                {
+                    id_posta = p.id,
+                    keywords = tagi,
+                    description = opis
+                };
+
+                context.Tagis.InsertOnSubmit(t);
+                context.SubmitChanges();
+            }
+        }
+
+        public void EdytujPost(int id, string tytul, string tresc, int status)
+        {
+            using (LinqTodbBlogDataContext context = new LinqTodbBlogDataContext())
+            {
+                var post = context.Posties.Single(p => p.id == id);
+                post.tytul = tytul;
+                post.tresc = tresc;
+                post.status = status;
+                post.data_modyfikacji = DateTime.Now;
+
+                context.SubmitChanges();
+            }
+        }
+
+        public void EdytujPost(int id, string tytul, string tresc, int status, string tagi, string opis)
+        {
+            using (LinqTodbBlogDataContext context = new LinqTodbBlogDataContext())
+            {
+                var post = context.Posties.Single(p => p.id == id);
+                post.tytul = tytul;
+                post.tresc = tresc;
+                post.status = status;
+                post.data_modyfikacji = DateTime.Now;
+
+                var tag = context.Tagis.Single(s => s.id_posta == id);
+
+                tag.keywords = tagi;
+                tag.description = opis;
+
+                context.SubmitChanges();
+            }
+        }
 
         #endregion
     }
