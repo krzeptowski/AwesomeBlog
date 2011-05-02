@@ -55,6 +55,7 @@ namespace Blog.Controllers
         //
         // POST: /Post/Create
 
+        [Authorize(Roles = "Administracja")]
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
