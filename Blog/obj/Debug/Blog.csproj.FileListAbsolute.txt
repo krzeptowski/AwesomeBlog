@@ -1,5 +1,0 @@
-D:\szkola\sem8\Asynchroniczne Interfejsy WWW\AwesomeBlog\Blog\bin\Blog.dll
-D:\szkola\sem8\Asynchroniczne Interfejsy WWW\AwesomeBlog\Blog\bin\Blog.pdb
-D:\szkola\sem8\Asynchroniczne Interfejsy WWW\AwesomeBlog\Blog\obj\Debug\ResolveAssemblyReference.cache
-D:\szkola\sem8\Asynchroniczne Interfejsy WWW\AwesomeBlog\Blog\obj\Debug\Blog.dll
-D:\szkola\sem8\Asynchroniczne Interfejsy WWW\AwesomeBlog\Blog\obj\Debug\Blog.pdb
