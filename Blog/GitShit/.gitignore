@@ -1,7 +1,0 @@
-*.csproj.user
-Blog/App_Data/*
-Blog/obj/*
-Blog/bin/*
-*.ncb
-*.sln
-*.suo
