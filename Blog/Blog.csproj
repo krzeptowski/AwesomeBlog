@@ -104,6 +104,7 @@
     <Content Include="Content\img\post_time.gif" />
     <Content Include="Content\img\post_time.png" />
     <Content Include="Content\img\top.jpg" />
+    <Content Include="GitShit\.gitignore" />
     <Content Include="Global.asax" />
     <Content Include="Views\Post\Create.aspx" />
     <Content Include="Views\Post\Details.aspx" />
