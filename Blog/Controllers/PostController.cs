@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Web; 
 using System.Web.Mvc;
 //using System.Web.
 
@@ -55,8 +55,8 @@ namespace Blog.Controllers
         //
         // POST: /Post/Create
 
-        [Authorize(Roles = "Administracja")]
         [HttpPost]
+        [Authorize(Roles = "Administracja")]
         public ActionResult Create(FormCollection collection)
         {
             try
@@ -79,7 +79,8 @@ namespace Blog.Controllers
         
         //
         // GET: /Post/Edit/5
- 
+        
+        [Authorize(Roles = "Administracja")]
         public ActionResult Edit(int id)
         {
             PostModel post = _posty.PobierzPost(id);
@@ -100,8 +101,9 @@ namespace Blog.Controllers
 
         //
         // POST: /Post/Edit/5
-
+        
         [HttpPost]
+        [Authorize(Roles = "Administracja")]
         public ActionResult Edit(int id, FormCollection collection)
         {
             try
@@ -124,7 +126,8 @@ namespace Blog.Controllers
 
         //
         // GET: /Post/Delete/5
- 
+
+        [Authorize(Roles = "Administracja")]
         public ActionResult Delete(int id)
         {
             return View();
@@ -134,6 +137,7 @@ namespace Blog.Controllers
         // POST: /Post/Delete/5
 
         [HttpPost]
+        [Authorize(Roles = "Administracja")]
         public ActionResult Delete(int id, FormCollection collection)
         {
             try
