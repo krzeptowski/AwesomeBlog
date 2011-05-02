@@ -45,7 +45,8 @@ namespace Blog.Controllers
 
         //
         // GET: /Post/Create
-
+        
+        [Authorize(Roles="Administracja")]
         public ActionResult Create()
         {
             return View();
