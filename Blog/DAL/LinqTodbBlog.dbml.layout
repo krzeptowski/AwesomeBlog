@@ -14,7 +14,7 @@
         <elementListCompartment Id="624d3beb-64a5-4645-b21b-c2baa4fb0109" absoluteBounds="5.265, 2.21, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(7.25 : 2.60659912109375); (7.625 : 2.60659912109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(7.25 : 2.60659912109375); (7.625 : 2.60659912109375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/LinqTodbBlogDataContext/Posty/Posty_Komentarze" />
       <nodes>
         <classShapeMoniker Id="513df2e3-6d2a-4c1d-be9a-b5a88e0ed67a" />
@@ -27,12 +27,24 @@
         <elementListCompartment Id="bfdcb691-8827-4a41-bb8d-9ab4ca68689e" absoluteBounds="2.89, 2.46, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(5.25 : 2.69314697265625); (4.875 : 2.69314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.25 : 3.0425439453125); (4.875 : 3.0425439453125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/LinqTodbBlogDataContext/Posty/Posty_Tagi" />
       <nodes>
         <classShapeMoniker Id="513df2e3-6d2a-4c1d-be9a-b5a88e0ed67a" />
         <classShapeMoniker Id="a184fafc-6a46-42b9-8fa9-781f5d279f2e" />
       </nodes>
     </associationConnector>
+    <classShape Id="49e7f95e-caca-4799-95c3-cce0d513863b" absoluteBounds="0.5, 0.625, 2, 1.3862939453125">
+      <DataClassMoniker Name="/LinqTodbBlogDataContext/Ustawienia" />
+      <nestedChildShapes>
+        <elementListCompartment Id="abeba5cb-fdde-4030-9605-93b4e8a9da50" absoluteBounds="0.51500000000000012, 1.085, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e412acf9-b4b3-4882-bf73-5f52b5f9c2c6" absoluteBounds="0.5, 2.625, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/LinqTodbBlogDataContext/PostyTagi" />
+      <nestedChildShapes>
+        <elementListCompartment Id="48031b76-3371-4a73-bef1-1da39b9d916c" absoluteBounds="0.51500000000000012, 3.085, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>

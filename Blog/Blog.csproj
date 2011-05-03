@@ -67,11 +67,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PostController.cs" />
     <Compile Include="DAL\KomentarzDAL.cs" />
     <Compile Include="DAL\PostDAL.cs" />
+    <Compile Include="DAL\PostTagDAL.cs" />
     <Compile Include="DAL\TagDAL.cs" />
+    <Compile Include="DAL\UstawieniaDAL.cs" />
     <Compile Include="Models\KomentarzModel.cs" />
     <Compile Include="Models\PostModel.cs" />
     <Compile Include="Global.asax.cs">
@@ -83,7 +86,9 @@
       <DependentUpon>LinqTodbBlog.dbml</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\PostTagModel.cs" />
     <Compile Include="Models\TagModel.cs" />
+    <Compile Include="Models\UstawieniaModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -105,9 +110,13 @@
     <Content Include="Content\img\post_time.png" />
     <Content Include="Content\img\top.jpg" />
     <Content Include="Global.asax" />
+    <Content Include="Views\Admin\Create.aspx" />
+    <Content Include="Views\Admin\CreateNewPost.ascx" />
+    <Content Include="Views\Home\Indexx.aspx" />
     <Content Include="Views\Post\Create.aspx" />
     <Content Include="Views\Post\Details.aspx" />
     <Content Include="Views\Post\Edit.aspx" />
+    <Content Include="Views\Shared\AdministrationTools.ascx" />
     <Content Include="Views\Shared\SiteTitle.ascx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -145,7 +154,7 @@
       <LastGenOutput>LinqTodbBlog.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <Content Include="Views\Account\web.config" />
+    <Content Include="Views\Shared\SiteClear.Master" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />

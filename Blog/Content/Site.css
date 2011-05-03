@@ -1,5 +1,6 @@
 ﻿* { margin: 0; padding: 0; outline: 0; border:none; }
 
+/************************* struktura strony ***********************/
 body 
 {
     color:#8A867C;
@@ -226,6 +227,44 @@ a:hover
 	margin-left:475px;
 	background:url(img/abg_logo.png) no-repeat left bottom;
 }
+/*********************** inne *****************************************/
+#admin_tools
+{}
+#admin_tools .button
+{
+    display:block; 
+    height:25px; 
+    border: 1px solid #8A867C; 
+    line-height:25px; 
+    text-align:center; 
+    vertical-align:middle; 
+    padding:0 5px; 
+    float:left; 
+    background-color:#444340;
+    margin:5px 5px 5px 0px;
+    
+    /***** radius corner ***/
+    -moz-border-radius:5px; /* FF */
+    -webkit-border-radius:5px; /* przeglądarki z webkitem (Safari, Chrome itp.) */
+	-khtml-border-radius:5px; /* przeglądarki typu K-meleon (typowo Linuxowe) */
+	border-radius:5px; /* pozostałe przeglądarki */
+	/*ie nie chce mi sie dodawać bo wymaga dodatkowych skryptow*/
+}
+#admin_tools .button + .button
+{ margin-left:5px; }
+#admin_tools .button:hover
+{
+    background-color:#565553;
+    border-color:#9A9646;
+}
+/********************* formularz editor *********************************/
+.new_post .editor-field input
+{ background-color: #202020; color: #FFFFFF; width: 740px; padding:3px; }
+.new_post .editor-field textarea
+{ background-color: #202020; color: #FFFFFF; width: 740px; padding:3px; }
+.new_post .editor-field select
+{ background-color: #202020; color: #FFFFFF; width: 100px; padding:3px; }
+/********************* ogolne klasy ***********************************/
 
 .fieldset
 {border: 1px solid #4E4421; padding:5px;}
@@ -234,3 +273,61 @@ a:hover
 
 .error
 {color:#ff0000;}
+
+/*button w polu fieldset złożony z diva i napisu*/
+.fieldset .button
+{
+    display:block; 
+    height:25px; 
+    border: 1px solid #8A867C; 
+    line-height:25px; 
+    text-align:center; 
+    vertical-align:middle; 
+    padding:0 5px; 
+    float:right; 
+    background-color:#444340;
+    margin:10px 5px 5px 5px;
+    
+    /***** radius corner ***/
+    -moz-border-radius:5px; /* FF */
+    -webkit-border-radius:5px; /* przeglądarki z webkitem (Safari, Chrome itp.) */
+	-khtml-border-radius:5px; /* przeglądarki typu K-meleon (typowo Linuxowe) */
+	border-radius:5px; /* pozostałe przeglądarki */
+	/*ie nie chce mi sie dodawać bo wymaga dodatkowych skryptow*/
+	
+	color:#9A9646;
+    font-family:"Trebuchet MS",Arial,Helvetica,sans-serif;
+    font-size:12px;
+} 
+.fieldset .button:hover
+{
+    color:#fff;
+    background-color:#565553;
+    border-color:#9A9646;
+}
+/*label dla buttona w polu fieldset złożonego z diva i wewnętrznego input submit*/
+.fieldset .button_label
+{
+    color:#9A9646;
+    font-family:"Trebuchet MS",Arial,Helvetica,sans-serif;
+    font-size:12px;
+    background:none;
+}
+.fieldset .button_label:hover
+{
+    color:#fff;
+    border-color:#9A9646;
+    background:none;
+}
+
+.radius{
+/***** radius corner ***/
+    -moz-border-radius:5px; /* FF */
+    -webkit-border-radius:5px; /* przeglądarki z webkitem (Safari, Chrome itp.) */
+	-khtml-border-radius:5px; /* przeglądarki typu K-meleon (typowo Linuxowe) */
+	border-radius:5px; /* pozostałe przeglądarki */
+	/*ie nie chce mi sie dodawać bo wymaga dodatkowych skryptow*/
+}
+
+.clear20
+{clear:both;height:20px;}

@@ -11,24 +11,44 @@ namespace Blog.Controllers
     [HandleError]
     public class HomeController : Controller
     {
-        IPost _posty;
-        ITag _tagi;
+        //IPost _posty;
+        //ITag _tagi;
         IKomentarz _komentarze;
+
+        IPostTag _postTag;
+        IUstawienia _ustawienia;
 
         public HomeController()
         {
-            _posty = new PostDAL();
-            _tagi = new TagDAL();
+            //_posty = new PostDAL();
+            //_tagi = new TagDAL();
             _komentarze = new KomentarzDAL();
+
+            _postTag = new PostTagDAL();
+            _ustawienia = new UstawieniaServices();
         }
 
-        public ActionResult Index()
+        public ActionResult Index(int? offset)
         {
-            ViewData["Posty"] = _posty.PobierzWszystkie();
-            ViewData["Tagi"] = _tagi.PobierzWszystkie();
+            ViewData["PostyTagi"] = _postTag.pobierzPorcje(Int16.Parse(_ustawienia.getSettings("ilosc_pozycji_na_strone")),(offset==null)?0:(int)offset);
             ViewData["Komentarze"] = _komentarze.PobierzWszystkie();
             return View();
         }
+
+        //public ActionResult Indexx()
+        //{
+        //    ViewData["PostyTagi"] = _postTag.pobierzPorcje(Int16.Parse(_ustawienia.getSettings("ilosc_pozycji_na_strone")), 0);
+        //    ViewData["Komentarze"] = _komentarze.PobierzWszystkie();
+        //    return View();
+        //}
+
+        //GET: /Home/Index/6
+        //public ActionResult Indexx(int? offset)
+        //{
+        //    ViewData["PostyTagi"] = _postTag.pobierzPorcje(Int16.Parse(_ustawienia.getSettings("ilosc_pozycji_na_strone")),(offset==null)?0:(int)offset);
+        //    ViewData["Komentarze"] = _komentarze.PobierzWszystkie();
+        //    return View();
+        //}
 
         //
         // GET: /Post/Details/5

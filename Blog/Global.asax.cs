@@ -17,6 +17,18 @@ namespace Blog
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                "PokazWpisy",
+                "Home/Index/{offset}",
+                new { controller = "Home", action = "Index", offset = UrlParameter.Optional }
+                );
+            
+            routes.MapRoute(
+                "PokazWpisyShort",
+                "{offset}",
+                new { controller = "Home", action = "Index", offset = UrlParameter.Optional }
+                );
+
+            routes.MapRoute(
                 "Default", // Route name
                 "{controller}/{action}/{id}", // URL with parameters
                 new { controller = "Home", action = "Index", id = UrlParameter.Optional } // Parameter defaults
