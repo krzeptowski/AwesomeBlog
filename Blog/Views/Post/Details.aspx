@@ -51,8 +51,18 @@
         <%  }%>
     </div>
 
-    <div class="komentarz_dodaj">
-    formularz
-    </div>
+     <div class="komentarz_dodaj">
+     <%: Html.ActionLink("Tworz", "Create", "Post", new { idPosta = post.Id }) %>
+     </div>
+
+<%--Zostawiam do ajaxa. Moze sie przyda --%>
+<%--    <div class="komentarz_dodaj">
+    <% KomentarzModel model = new KomentarzModel
+       {
+           IdPosta = post.Id
+       };
+    %>
+    <% Html.RenderPartial("../Komentarz/CreateKomentarz", model); %>
+    </div>--%>
 
 </asp:Content>

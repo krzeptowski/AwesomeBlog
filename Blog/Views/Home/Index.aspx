@@ -22,11 +22,7 @@
            foreach (PostTagModel post in (List<PostTagModel>)ViewData["PostyTagi"])
            { %>
                 <div class="post">
-<<<<<<< HEAD
                     <h2><a href="../Post/Details/<%: post.Id %>" title="<%: post.Tytul %>"><%: post.Tytul %></a></h2>
-=======
-                    <h2><a href="Post/Details/<%: post.Id %>" title="<%: post.Tytul %>"><%: post.Tytul%></a></h2>
->>>>>>> c2b457ce3adf7cd0900ae52eab9ec00d01d403f7
                     <div class="time">
                     Dodano: <%: post.DataModyfikacji.ToString()%>
                         &nbsp|&nbsp Tagi: 
