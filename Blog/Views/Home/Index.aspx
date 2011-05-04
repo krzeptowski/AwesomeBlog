@@ -18,7 +18,7 @@
            foreach (PostModel post in (List<PostModel>)ViewData["Posty"])
            { %>
                 <div class="post">
-                    <h2><a href="Post/Details/<%: post.Id %>" title="<%: post.Tytul %>"><%: post.Tytul %></a></h2>
+                    <h2><a href="../Post/Details/<%: post.Id %>" title="<%: post.Tytul %>"><%: post.Tytul %></a></h2>
                     <div class="time">
                     Dodano: <%: post.DataModyfikacji.ToString() %>
                         &nbsp|&nbsp Tagi: 
@@ -44,7 +44,7 @@
                     <div class="content">
                         <%= post.Tresc %>
                     </div>
-                    <div class="coments"><a href="Post/Details/<%: post.Id %>" title=""><%: ((List<KomentarzModel>)ViewData["Komentarze"]).Count(i => i.IdPosta == post.Id).ToString()%> Komentarzy</a></div>
+                    <div class="coments"><a href="../Post/Details/<%: post.Id %>" title=""><%: ((List<KomentarzModel>)ViewData["Komentarze"]).Count(i => i.IdPosta == post.Id).ToString()%> Komentarzy</a></div>
                 </div>
 
                 <% if (((List<PostModel>)ViewData["Posty"]).IndexOf(post) < (((List<PostModel>)ViewData["Posty"]).Count - 1))

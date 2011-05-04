@@ -32,7 +32,7 @@
                     { %>wystąpił błąd<% }
                 }
                 %>
-        </div>  
+        </div>
         <div style="clear:both;"></div>  
         <div class="content">
             <%= post.Tresc %>
@@ -40,5 +40,19 @@
         <div class="coments"><a href="Post/Details/<%: post.Id %>" title=""><%: komentarze.Count(i => i.IdPosta == post.Id).ToString()%> Komentarzy</a></div>
     </div>
     
+    <div class="post_komentarze">
+        <% foreach (KomentarzModel each in komentarze)
+           { %>
+           <div class="komentarz_top">
+               <%: each.Autor%>
+               <%: each.DataDodania%> <br />
+               <%: each.Tresc%>
+           </div>
+        <%  }%>
+    </div>
+
+    <div class="komentarz_dodaj">
+    formularz
+    </div>
 
 </asp:Content>

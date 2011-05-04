@@ -68,6 +68,7 @@
   <ItemGroup>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KomentarzController.cs" />
     <Compile Include="Controllers\PostController.cs" />
     <Compile Include="DAL\KomentarzDAL.cs" />
     <Compile Include="DAL\PostDAL.cs" />
@@ -105,6 +106,7 @@
     <Content Include="Content\img\post_time.png" />
     <Content Include="Content\img\top.jpg" />
     <Content Include="Global.asax" />
+    <Content Include="Views\Komentarz\Create.ascx" />
     <Content Include="Views\Post\Create.aspx" />
     <Content Include="Views\Post\Details.aspx" />
     <Content Include="Views\Post\Edit.aspx" />
