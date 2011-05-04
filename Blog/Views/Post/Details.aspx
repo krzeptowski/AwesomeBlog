@@ -40,20 +40,17 @@
         <div class="content">
             <%= post.Tresc %>
         </div>
-        <div class="coments"><a href="Post/Details/<%: post.Id %>" title=""><%: komentarze.Count(i => i.IdPosta == post.Id).ToString()%> Komentarzy</a></div>
-    </div>
-
-    <div class="post_komentarze">
+        <div class="comments_count"><a href="Post/Details/<%: post.Id %>" title=""><%: komentarze.Count(i => i.IdPosta == post.Id).ToString()%> Komentarzy</a></div>
+        <hr />
+        <div class="comment">
         <% foreach (KomentarzModel each in komentarze)
            { %>
-           <div class="komentarz_top">
-               <%: each.Autor%>
-               <%: each.DataDodania%> <br />
-               <%: each.Tresc%>
-           </div>
+           <div class="autor">Autor:<%: each.Autor%></div>
+           <div class="data">Dodano:<%: each.DataDodania%></div> <br /> <br />
+           <div class="tresc"><%: each.Tresc%></div> <br />
         <%  }%>
     </div>
-
+    </div>
      <div class="komentarz_dodaj">
      <%: Html.ActionLink("Tworz", "Create", "Komentarz", new { post.Id }, null) %>
      </div>

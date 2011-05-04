@@ -169,7 +169,7 @@ a:hover
 	padding: 0 10px;
 	margin-top:10px;
 }
-.post .coments
+.post .comments_count  /* zmienilem bo mi bylo potrzebne comments ;p */
 {
 	padding: 10px 0 0 10px;
 }
@@ -331,3 +331,29 @@ a:hover
 
 .clear20
 {clear:both;height:20px;}
+
+
+/*******************************************CSS dedzia********************************************/
+
+.post .comment
+{
+	color: #97938A;
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    font-size: 11px;
+    padding: 0 10px 0 10px;
+}
+
+.comment .autor
+{
+	float:left;
+}
+
+.comment .data
+{
+	float:right;
+}
+
+.comment .tresc
+{
+	padding: 0 10px 0 10px;
+}
