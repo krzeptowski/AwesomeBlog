@@ -40,20 +40,31 @@
         <div class="content">
             <%= post.Tresc %>
         </div>
-        <div class="comments_count"><a href="Post/Details/<%: post.Id %>" title=""><%: komentarze.Count(i => i.IdPosta == post.Id).ToString()%> Komentarzy</a></div>
         <hr />
-        <div class="comment">
-        <% foreach (KomentarzModel each in komentarze)
-           { %>
-           <div class="autor">Autor:<%: each.Autor%></div>
-           <div class="data">Dodano:<%: each.DataDodania%></div> <br /> <br />
-           <div class="tresc"><%: each.Tresc%></div> <br />
+        <% bool trigger = true;
+           foreach (KomentarzModel each in komentarze)
+           {
+               string style = "";
+               string name = "background-color:";
+               string color = "";
+               if (!trigger)
+                   style = name + "#34342F";
+               else
+                   style = "";
+               trigger = !trigger;
+               %>
+            <div class="comment" style="<%: style %>">
+               <div class="autor">Autor: <%: each.Autor%></div>
+               <div class="data">Dodano: <%: each.DataDodania%></div> <br /> <br />
+               <div class="tresc"><%: each.Tresc%></div> <br />
+               <hr />
+           </div>
         <%  }%>
+
+        <div class="comment_add">
+            <%: Html.ActionLink("Tworz", "Create", "Komentarz", new { post.Id }, null) %>
+        </div>
     </div>
-    </div>
-     <div class="komentarz_dodaj">
-     <%: Html.ActionLink("Tworz", "Create", "Komentarz", new { post.Id }, null) %>
-     </div>
 
 <%--Zostawiam do ajaxa. Moze sie przyda --%>
 <%--    <div class="komentarz_dodaj">

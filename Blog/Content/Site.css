@@ -160,7 +160,7 @@ a:hover
 	color: #97938A;
 	font-family: Verdana,Arial,Helvetica,sans-serif;
 	font-size: 11px;
-	padding: 0 0 0 10px;
+	padding: 0 0 10px 10px;
 }
 .post .content p
 {
@@ -340,20 +340,32 @@ a:hover
 	color: #97938A;
     font-family: Verdana,Arial,Helvetica,sans-serif;
     font-size: 11px;
-    padding: 0 10px 0 10px;
+    background-color: #232320;
+    margin: 0px 1px 0px 1px;
+    padding: 5px 0px 0px 0px;
 }
 
 .comment .autor
 {
 	float:left;
+	padding: 0 10px 0 10px;
 }
 
 .comment .data
 {
 	float:right;
+	padding: 0 10px 0 10px;
 }
 
 .comment .tresc
 {
-	padding: 0 10px 0 10px;
+	padding: 0 20px 0 20px;
+}
+
+.comment_add
+{
+	margin-left:auto;
+	margin-right:auto;
+	width: 50px;
+    padding: 5px 0px 0px 0px;
 }
