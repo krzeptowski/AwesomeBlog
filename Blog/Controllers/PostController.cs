@@ -34,7 +34,7 @@ namespace Blog.Controllers
         //
         // GET: /Post/Details/5
 
-        public ActionResult Details(int id)
+        public ActionResult Details(int id, KomentarzModel model)
         {
             ViewData["Post"] = _posty.PobierzPost(id);
             ViewData["Tagi"] = _tagi.PobierzTagPosta(id);

@@ -59,7 +59,7 @@
                 </div>
             
                 <div class="button"><input type="submit" value="Stwórz" class="button_label"/></div>
-                <div class="button"><%: Html.ActionLink("Anuluj", "Index") %></div>
+                <div class="button"><%: Html.ActionLink("Anuluj", "Index", "Home") %></div>
             </fieldset>
         <% } %>
         <div class="clear20"></div>

@@ -12,6 +12,7 @@ namespace Blog.DAL
         List<KomentarzModel> PobierzDlaID(int idPosta);
         List<KomentarzModel> PobierzWszystkie();
         int PobierzIloscDlaID(int idPosta);
+        void DodajKomentarz(int idPosta, string autor, string tresc, int status);
     }
 
     public class KomentarzDAL : IKomentarz
@@ -65,6 +66,24 @@ namespace Blog.DAL
                         };
 
                 return l.ToList();
+            }
+        }
+
+        public void DodajKomentarz(int idPosta, string autor, string tresc, int status)
+        {
+            using (LinqTodbBlogDataContext context = new LinqTodbBlogDataContext())
+            {
+                Komentarze k = new Komentarze
+                {
+                   id_posta = idPosta,
+                   autor = autor,
+                   tresc = tresc,
+                   status = status,
+                   data_dodania = DateTime.Now
+                };
+
+                context.Komentarzes.InsertOnSubmit(k);
+                context.SubmitChanges();
             }
         }
 

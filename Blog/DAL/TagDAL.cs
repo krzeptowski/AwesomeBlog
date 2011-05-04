@@ -23,13 +23,21 @@ namespace Blog.DAL
         {
             using (LinqTodbBlogDataContext context = new LinqTodbBlogDataContext())
             {
-                var tag = context.Tagis.Single(t => t.id_posta == id);
-                          return new TagModel
+                try
+                {
+                    var tag = context.Tagis.Single(t => t.id_posta == id);
+                    return new TagModel
                           {
                               IdPosta = tag.id_posta,
                               Keywords = tag.keywords,
                               Desc = tag.description
                           };
+                }
+                catch(InvalidOperationException)
+                {
+                    return null;
+                }
+                          
             }
         }
 

@@ -53,7 +53,7 @@
                     <div class="content">
                         <%= post.Tresc%>
                     </div>
-                    <div class="coments"><a href="Post/Details/<%: post.Id %>" title=""><%: ((List<KomentarzModel>)ViewData["Komentarze"]).Count(i => i.IdPosta == post.Id).ToString()%> Komentarzy</a></div>
+                    <div class="coments"><a href="../Post/Details/<%: post.Id %>" title=""><%: ((List<KomentarzModel>)ViewData["Komentarze"]).Count(i => i.IdPosta == post.Id).ToString()%> Komentarzy</a></div>
                 </div>
 
                 <% if (((List<PostTagModel>)ViewData["PostyTagi"]).IndexOf(post) < (((List<PostTagModel>)ViewData["PostyTagi"]).Count - 1))

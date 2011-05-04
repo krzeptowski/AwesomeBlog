@@ -173,6 +173,13 @@ a:hover
 {
 	padding: 10px 0 0 10px;
 }
+.post_button_edit, .post_button_delete
+{ width:17px; height:21px; position:absolute; margin-left:-17px;}
+.post_button_edit
+{ background:url("img/ico_edit.png") no-repeat top right;}
+.post_button_edit
+{ background:url("img/ico_edit.png") no-repeat top right;}
+
 #left_content hr
 {
 	background: none repeat scroll 0 0 #414331;
