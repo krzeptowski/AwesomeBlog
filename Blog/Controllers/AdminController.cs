@@ -40,7 +40,8 @@ namespace Blog.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    if (!_PostTag.dodajPost(model))
+                    model.Id=_PostTag.dodajPost(model);
+                    if (model.Id==0)
                     {
                         /*dodanie wpisu nie powiodło się*/
                         ViewData["result"] = "Dodanie nowego wpisu nie powiodło się. Spróbuj ponownie, jeśli problem będzie się powtarzać skontaktuj się z administratorem.";
@@ -53,7 +54,7 @@ namespace Blog.Controllers
                 }
 
                 /*po prawidłowym wykonaniu:*/
-                return RedirectToAction("Index", "Home"); //Można pokombinowac żeby przejść do Post/Details/id< 
+                return RedirectToAction("Details", "Post", new { model.Id}); //Można pokombinowac żeby przejść do Post/Details/id< 
             }
             catch(Exception e)
             {

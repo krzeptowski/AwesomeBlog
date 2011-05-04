@@ -7,13 +7,13 @@ namespace Blog.DAL
 {
     public interface IPostTag
     {
-        bool dodajPost(Models.PostTagModel model);
+        int dodajPost(Models.PostTagModel model);
         List<Models.PostTagModel> pobierzPorcje(int ile, int offset);
     }
 
     public class PostTagDAL:IPostTag
     {
-        public bool dodajPost(Models.PostTagModel model)
+        public int dodajPost(Models.PostTagModel model)
         {
             using (LinqTodbBlogDataContext db = new LinqTodbBlogDataContext())
             {
@@ -40,15 +40,14 @@ namespace Blog.DAL
 
                     db.Tagis.InsertOnSubmit(t);
                     db.SubmitChanges();
-
+                    
+                    return p.id;
                 }
                 catch (Exception)
                 {
-                    return false;
+                    return 0;
                     /*throw new Exception("Wystąpił błąd podczas dodawania nowego postu");*/
                 }
-
-                return true;
             }
         }
         public List<Models.PostTagModel> pobierzPorcje(int ile, int offset)

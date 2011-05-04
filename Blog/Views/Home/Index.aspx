@@ -22,7 +22,7 @@
            foreach (PostTagModel post in (List<PostTagModel>)ViewData["PostyTagi"])
            { %>
                 <div class="post">
-                    <h2><a href="Post/Details/<%: post.Id %>" title="<%: post.Tytul %>"><%: post.Tytul%></a></h2>
+                    <h2><%: Html.ActionLink(String.IsNullOrEmpty(post.Tytul)?"Brak tytułu":post.Tytul, "Details", "Post", new { post.Id }, new { tile = "post.Tytul" })%></h2>
                     <div class="time">
                     Dodano: <%: post.DataModyfikacji.ToString()%>
                         &nbsp|&nbsp Tagi: 

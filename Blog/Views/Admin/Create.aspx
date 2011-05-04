@@ -56,34 +56,6 @@
                 </div>
                 <div class="editor-field">
                     <%: Html.DropDownListFor(model => model.Status, new List<SelectListItem> { new SelectListItem{Text="Widoczny",Value="1"}, new SelectListItem{Text="Ukryty", Value="0"} } )%>
-                    <%--<%: Html.TextBoxFor(model => model.Status) %>--%>
-                    <%-- <select id="Select1">
-                        <% try
-                           { %>
-                            <% if (Model.Status == 1)
-                               {%>
-                                <option selected="selected" value="1">widoczny</option>
-                            <% }
-                               else
-                               { %>
-                                <option value="1">widoczny</option>
-                            <% } %>
-
-                            <% if (Model.Status == 0)
-                               {%>
-                                <option selected="selected" value="0">ukryty</option>
-                            <% }
-                               else
-                               { %>
-                                <option value="0">ukryty</option>
-                            <% } %>
-                        <% }
-                           catch (NullReferenceException)
-                           { %>
-                                <option selected="selected" value="1">widoczny</option>
-                                <option value="0">ukryty</option>
-                        <% } %>
-                    </select>--%>
                 </div>
             
                 <div class="button"><input type="submit" value="Stwórz" class="button_label"/></div>

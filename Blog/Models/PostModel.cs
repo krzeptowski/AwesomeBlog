@@ -23,6 +23,7 @@ namespace Blog.Models
         public String Tresc { get; set; }
         
         [DisplayName("Status wpisu")]
+        [Required(ErrorMessage="status jest wymagany")]
         public int Status { get; set; }
         
         public DateTime? DataModyfikacji { get; set; }
