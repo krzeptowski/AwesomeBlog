@@ -118,6 +118,7 @@
     <Content Include="Views\Post\Edit.aspx" />
     <Content Include="Views\Shared\AdministrationTools.ascx" />
     <Content Include="Views\Shared\SiteTitle.ascx" />
+    <Content Include="Views\Shared\TopMenu.ascx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
