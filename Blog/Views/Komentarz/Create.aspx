@@ -6,8 +6,11 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-    <h2>Create</h2>
+</asp:Content>
 
+<asp:Content ID="Content3" ContentPlaceHolderID="LeftContent" runat="server">
+
+    <% Html.EnableClientValidation(); %>
     <% using (Html.BeginForm("Create", "Komentarz")) {%>
         <%: Html.ValidationSummary(true) %>
 
@@ -27,16 +30,11 @@
                 <%: Html.TextBoxFor(model => model.Tresc) %>
                 <%: Html.ValidationMessageFor(model => model.Tresc) %>
             </div>
-            
+
             <p>
                 <input type="submit" value="Create" />
             </p>
         </fieldset>
-
     <% } %>
 
 </asp:Content>
-
-<asp:Content ID="Content3" ContentPlaceHolderID="LeftContent" runat="server">
-</asp:Content>
-

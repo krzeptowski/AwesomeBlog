@@ -44,29 +44,14 @@ namespace Blog.Controllers
         //
         // POST: /Komentarz/Create
 
-        //[HttpPost]
-        //public ActionResult Create(FormCollection collection)
-        //{
-        //    try
-        //    {
-        //        int idPosta = Convert.ToInt32(collection["idPosta"]);
-        //        string autor = collection["Autor"];
-        //        string tresc = collection["Tresc"];
-
-        //        _komenatrze.DodajKomentarz(idPosta, autor, tresc, 0);
-
-        //        return RedirectToAction("Index");
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
-        //}
-
-        [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult Create(KomentarzModel model)
+        [HttpPost]
+        public ActionResult Create(int id, KomentarzModel model)
         {
-            //return RedirectToAction("Details/13", "Post");
+            model.IdPosta = id;
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
 
             try
             {

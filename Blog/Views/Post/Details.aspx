@@ -5,7 +5,10 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+</asp:Content>
 
+<asp:Content ID="Content3" ContentPlaceHolderID="LeftContent" runat="server">
+    
     <div class="post">
         <% PostModel post = (PostModel)ViewData["Post"]; %>
         <% TagModel tagi = (TagModel)ViewData["Tagi"]; %>
@@ -39,7 +42,7 @@
         </div>
         <div class="coments"><a href="Post/Details/<%: post.Id %>" title=""><%: komentarze.Count(i => i.IdPosta == post.Id).ToString()%> Komentarzy</a></div>
     </div>
-    
+
     <div class="post_komentarze">
         <% foreach (KomentarzModel each in komentarze)
            { %>
@@ -52,7 +55,7 @@
     </div>
 
      <div class="komentarz_dodaj">
-     <%: Html.ActionLink("Tworz", "Create", "Post", new { idPosta = post.Id }) %>
+     <%: Html.ActionLink("Tworz", "Create", "Komentarz", new { post.Id }, null) %>
      </div>
 
 <%--Zostawiam do ajaxa. Moze sie przyda --%>
