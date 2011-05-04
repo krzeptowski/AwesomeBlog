@@ -1,2 +1,2 @@
 ﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<dynamic>" %>
-Tytuł strony
+<%: new Blog.DAL.UstawieniaServices().getSettings("nazwa_strony") %>

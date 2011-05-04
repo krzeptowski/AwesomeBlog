@@ -1,16 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<dynamic>" %>
 <%@ Import Namespace="Blog.Models" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
-	Blog
+	Indexx
 </asp:Content>
 
-<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <% Html.RenderPartial("AdministrationTools"); %>
-    <%-- Html.RenderPartial("../Admin/CreateNewPost"); doda się ten partial jak będziemy robić ajaxem--%>
-</asp:Content>
-
-<asp:Content ID="Content3" ContentPlaceHolderID="LeftContent" runat="server">
-    
+<asp:Content ID="Content2" ContentPlaceHolderID="LeftContent" runat="server">
     <% try
        { %>
     <% if (((List<PostTagModel>)ViewData["PostyTagi"]).Count <= 0)
@@ -22,11 +16,7 @@
            foreach (PostTagModel post in (List<PostTagModel>)ViewData["PostyTagi"])
            { %>
                 <div class="post">
-<<<<<<< HEAD
-                    <h2><a href="../Post/Details/<%: post.Id %>" title="<%: post.Tytul %>"><%: post.Tytul %></a></h2>
-=======
                     <h2><a href="Post/Details/<%: post.Id %>" title="<%: post.Tytul %>"><%: post.Tytul%></a></h2>
->>>>>>> c2b457ce3adf7cd0900ae52eab9ec00d01d403f7
                     <div class="time">
                     Dodano: <%: post.DataModyfikacji.ToString()%>
                         &nbsp|&nbsp Tagi: 
@@ -57,7 +47,7 @@
                     <div class="content">
                         <%= post.Tresc%>
                     </div>
-                    <div class="coments"><a href="../Post/Details/<%: post.Id %>" title=""><%: ((List<KomentarzModel>)ViewData["Komentarze"]).Count(i => i.IdPosta == post.Id).ToString()%> Komentarzy</a></div>
+                    <div class="coments"><a href="Post/Details/<%: post.Id %>" title=""><%: ((List<KomentarzModel>)ViewData["Komentarze"]).Count(i => i.IdPosta == post.Id).ToString()%> Komentarzy</a></div>
                 </div>
 
                 <% if (((List<PostTagModel>)ViewData["PostyTagi"]).IndexOf(post) < (((List<PostTagModel>)ViewData["PostyTagi"]).Count - 1))
@@ -74,3 +64,7 @@
     <% } %>
 
 </asp:Content>
+
+<asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
+</asp:Content>
+
