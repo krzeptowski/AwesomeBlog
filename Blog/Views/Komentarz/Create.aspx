@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<Blog.Models.KomentarzModel>" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/SiteClear.Master" Inherits="System.Web.Mvc.ViewPage<Blog.Models.KomentarzModel>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
 	Nowy komentarz
@@ -33,7 +33,7 @@
                         <%: Html.ValidationMessageFor(model => model.Tresc) %>
                     </div>
 
-                    <div class="button"><input type="submit" value="Create" class="button" /></div>
+                    <div class="button"><input type="submit" value="Create" class="button_label" /></div>
                     <% int id = Convert.ToInt32(ViewData["idPosta"]); %>
                     <div class="button"><%: Html.ActionLink("Anuluj", "Details", "Post", new { id }, null) %></div>
 

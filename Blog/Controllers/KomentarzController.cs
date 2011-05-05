@@ -57,7 +57,7 @@ namespace Blog.Controllers
             try
             {
                 _komenatrze.DodajKomentarz(model.IdPosta, model.Autor, model.Tresc, model.Status);
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", "Post", new { id = id });
             }
             catch
             {
@@ -81,8 +81,6 @@ namespace Blog.Controllers
         {
             try
             {
-                // TODO: Add update logic here
- 
                 return RedirectToAction("Index");
             }
             catch
@@ -107,8 +105,6 @@ namespace Blog.Controllers
         {
             try
             {
-                // TODO: Add delete logic here
- 
                 return RedirectToAction("Index");
             }
             catch

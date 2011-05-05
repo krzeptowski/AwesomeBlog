@@ -8,6 +8,10 @@ using System.Web.Mvc;
 using Blog.DAL;
 using Blog.Models;
 
+//TODO: Zrobic zabezpieczenie przed wywolaniem posta ktory nie istnieje
+//TODO: Zrobic walidacje do formularzy (problem -> modele)
+//TODO: Poprawic redirecty
+
 namespace Blog.Controllers
 {
     public class PostController : Controller
@@ -24,11 +28,6 @@ namespace Blog.Controllers
             _posty = new PostDAL();
             _tagi = new TagDAL();
             _komentarze = new KomentarzDAL();
-        }
-
-        public ActionResult Index()
-        {
-            return View();
         }
 
         //
@@ -50,7 +49,7 @@ namespace Blog.Controllers
         public ActionResult Create()
         {
             return View();
-        } 
+        }
 
         //
         // POST: /Post/Create
@@ -142,8 +141,6 @@ namespace Blog.Controllers
         {
             try
             {
-                // TODO: Add delete logic here
-
                 return RedirectToAction("../Home/Index");
             }
             catch

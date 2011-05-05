@@ -61,8 +61,11 @@
            </div>
         <%  }%>
 
-        <div class="comment_add_button">
-            <%: Html.ActionLink("Dodaj komentarz", "Create", "Komentarz", new { post.Id }, null) %>
+        <div class="comment_add_link">
+            <div class="comment_add_link button">
+                <%: Html.ActionLink("Dodaj komentarz", "Create", "Komentarz", new { post.Id }, null) %> 
+                <%--TODO: tutaj trzeba cos naprawic ale nie wiem co ;P--%>
+            </div>
         </div>
     </div>
 

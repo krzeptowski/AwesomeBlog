@@ -10,7 +10,6 @@ namespace Blog.Controllers
     {
         DAL.IPostTag _PostTag;
 
-        
         public AdminController()
         {
             _PostTag = new DAL.PostTagDAL();
@@ -79,8 +78,6 @@ namespace Blog.Controllers
         {
             try
             {
-                // TODO: Add update logic here
- 
                 return RedirectToAction("Index");
             }
             catch
@@ -106,7 +103,6 @@ namespace Blog.Controllers
         {
             try
             {
-                // TODO: Add delete logic here
  
                 return RedirectToAction("Index");
             }

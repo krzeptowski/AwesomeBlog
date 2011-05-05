@@ -362,11 +362,29 @@ a:hover
 	padding: 0 20px 0 20px;
 }
 
-.comment_add_button
+.comment_add_link 
 {
-	margin-left:auto;
-	margin-right:auto;
-    padding: 5px 0px 0px 0px;
+}
+
+.comment_add_link .button /*tutaj trzeba cos naprawic ale nie wiem co :P */
+{
+    display:block; 
+    height:25px; 
+    border: 1px solid #8A867C; 
+    line-height:25px; 
+    text-align:center; 
+    vertical-align:middle; 
+    padding:0 5px; 
+    float:left; 
+    background-color:#444340;
+    margin:5px 5px 5px 0px;
+    
+    /***** radius corner ***/
+    -moz-border-radius:5px; /* FF */
+    -webkit-border-radius:5px; /* przeglądarki z webkitem (Safari, Chrome itp.) */
+	-khtml-border-radius:5px; /* przeglądarki typu K-meleon (typowo Linuxowe) */
+	border-radius:5px; /* pozostałe przeglądarki */
+	/*ie nie chce mi sie dodawać bo wymaga dodatkowych skryptow*/
 }
 
 .new_comment
