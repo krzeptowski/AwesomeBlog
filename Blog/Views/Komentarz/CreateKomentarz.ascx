@@ -11,7 +11,6 @@
                 <%: Html.TextBoxFor(model => model.Autor) %>
                 <%: Html.ValidationMessageFor(model => model.Autor) %>
             </div>
-
             <div class="editor-label">
                 <%: Html.LabelFor(model => model.Tresc) %>
             </div>

@@ -45,19 +45,42 @@ namespace Blog.Controllers
         //
         // POST: /Komentarz/Create
 
+        //[HttpPost]
+        //public ActionResult Create(int id, KomentarzModel model)
+        //{
+        //    model.IdPosta = id;
+        //    if (!ModelState.IsValid)
+        //    {
+        //        TempData["new_comm_model"] = model;
+        //        return RedirectToAction("Details", "Post", new { id = id });
+        //        //return View(model);
+        //    }
+
+        //    try
+        //    {
+        //        _komenatrze.DodajKomentarz(model.IdPosta, model.Autor, model.Tresc, model.Status);
+        //        return RedirectToAction("Details", "Post", new { id = id });
+        //    }
+        //    catch
+        //    {
+        //        return View();
+        //    }
+        //}
+
         [HttpPost]
-        public ActionResult Create(int id, KomentarzModel model)
+        public ActionResult Create(KomentarzModel model)
         {
-            model.IdPosta = id;
             if (!ModelState.IsValid)
             {
-                return View(model);
+                TempData["new_comm_model"] = model;
+                return RedirectToAction("Details", "Post", new { id = model.IdPosta });
+                //return View(model);
             }
 
             try
             {
                 _komenatrze.DodajKomentarz(model.IdPosta, model.Autor, model.Tresc, model.Status);
-                return RedirectToAction("Details", "Post", new { id = id });
+                return RedirectToAction("Details", "Post", new { id = model.IdPosta });
             }
             catch
             {

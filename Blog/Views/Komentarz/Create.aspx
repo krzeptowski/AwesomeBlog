@@ -5,7 +5,7 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <div class="new_comment">
+<%--    <div class="new_comment">
         <h2>Utwórz nowy komentarz</h2>
         <p>
             Wprowadź imię autora oraz treść komenatrza.
@@ -41,5 +41,5 @@
                 <div class="clear20"></div>
         
         <% } %>
-    </div>
+    </div>--%>
 </asp:Content>

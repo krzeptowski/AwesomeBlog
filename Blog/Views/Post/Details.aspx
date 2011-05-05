@@ -70,13 +70,22 @@
     </div>
 
 <%--Zostawiam do ajaxa. Moze sie przyda --%>
-<%--    <div class="komentarz_dodaj">
-    <% KomentarzModel model = new KomentarzModel
+    <div class="komentarz_dodaj">
+    <% KomentarzModel model = null;
+       if (TempData["new_comm_model"] == null)
        {
-           IdPosta = post.Id
-       };
+           model = new KomentarzModel
+           {
+               IdPosta = post.Id
+           };
+       }
+       else
+       {
+           model = (KomentarzModel)TempData["new_comm_model"];
+       }
+           
     %>
     <% Html.RenderPartial("../Komentarz/CreateKomentarz", model); %>
-    </div>--%>
+    </div>
 
 </asp:Content>
