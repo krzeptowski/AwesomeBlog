@@ -1,5 +1,5 @@
 # "skrypt" podmienia pliki (lista w binaryfiles.lst) a nastepnie dodaje je do stage
-# stworzone w celu automatyzacji rozwiazywania konfliktow
+# stworzone w celu automatyzacji rozwiazywania konfliktow :P
 
 if [ -z $1 ]
 then

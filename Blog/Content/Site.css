@@ -362,10 +362,22 @@ a:hover
 	padding: 0 20px 0 20px;
 }
 
-.comment_add
+.comment_add_button
 {
 	margin-left:auto;
 	margin-right:auto;
-	width: 50px;
     padding: 5px 0px 0px 0px;
 }
+
+.new_comment
+{
+	margin: 0px 10px 0px;
+}
+
+/********************* formularz dodawania komentarzy *********************************/
+.new_comment .editor-field input
+{ background-color: #202020; color: #FFFFFF; width: 740px; padding:3px; }
+.new_comment .editor-field textarea
+{ background-color: #202020; color: #FFFFFF; width: 740px; padding:3px; }
+.new_comment .editor-field select
+{ background-color: #202020; color: #FFFFFF; width: 100px; padding:3px; }

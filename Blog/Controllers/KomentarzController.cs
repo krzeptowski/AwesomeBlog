@@ -36,8 +36,9 @@ namespace Blog.Controllers
         //
         // GET: /Komentarz/Create
 
-        public ActionResult Create()
+        public ActionResult Create(int id)
         {
+            ViewData["idPosta"] = id;
             return View();
         }
 
