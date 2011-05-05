@@ -5,9 +5,8 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="LeftContent" runat="server">
-    <h2>Create</h2>
 
-    <div class="post_dodaj">
+    <div class="post_add">
         <% using (Html.BeginForm("Create", "Post"))
            {%>
         <fieldset>
