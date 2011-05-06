@@ -69,23 +69,23 @@
         </div>
     </div>
 
+
+    <%--Cos jest nie tak z samym widokiem i walidacja. Poczytac o tym--%>
 <%--Zostawiam do ajaxa. Moze sie przyda --%>
     <div class="komentarz_dodaj">
     <% KomentarzModel model = null;
        if (TempData["new_comm_model"] == null)
        {
-           model = new KomentarzModel
-           {
-               IdPosta = post.Id
-           };
+           Html.RenderPartial("../Komentarz/CreateKomentarz");
        }
        else
        {
            model = (KomentarzModel)TempData["new_comm_model"];
+           Html.RenderPartial("../Komentarz/CreateKomentarz", model);
        }
            
     %>
-    <% Html.RenderPartial("../Komentarz/CreateKomentarz", model); %>
+    <%  %>
     </div>
 
 </asp:Content>

@@ -13,12 +13,12 @@ namespace Blog.Models
         public int IdPosta { get; set; }
 
         [DisplayName("Treść komentarza:")]
-        [Required(ErrorMessage="Tresc jest wymagana")]
+        [Required(ErrorMessage="Tresc jest wymagana.")]
         public string Tresc { get; set; }
 
-        [Required]
+        [Required(ErrorMessage="Imie autora jest wymagane.")]
         [DisplayName("Imię autora:")]
-        [StringLength(50, ErrorMessage="Imie autora musi miec mniej niz 50 znakow")]
+        [StringLength(50, ErrorMessage="Imie autora musi miec mniej niz 50 znakow.")]
         public string Autor { get; set; }
 
         public DateTime DataDodania { get; set; }
