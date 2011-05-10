@@ -101,8 +101,8 @@
     <Content Include="Content\img\arrow.jpg" />
     <Content Include="Content\img\footer_bg.gif" />
     <Content Include="Content\img\footer_top.gif" />
-    <Content Include="Content\img\ico_del.png" />
-    <Content Include="Content\img\ico_del_actv.png" />
+    <Content Include="Content\img\ico_delete.png" />
+    <Content Include="Content\img\ico_delete_actv.png" />
     <Content Include="Content\img\ico_edit.png" />
     <Content Include="Content\img\ico_edit_actv.png" />
     <Content Include="Content\img\menu_bg.jpg" />

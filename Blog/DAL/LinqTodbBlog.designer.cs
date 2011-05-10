@@ -30,12 +30,12 @@ namespace Blog.DAL
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertKomentarze(Komentarze instance);
-    partial void UpdateKomentarze(Komentarze instance);
-    partial void DeleteKomentarze(Komentarze instance);
     partial void InsertUstawienia(Ustawienia instance);
     partial void UpdateUstawienia(Ustawienia instance);
     partial void DeleteUstawienia(Ustawienia instance);
+    partial void InsertKomentarze(Komentarze instance);
+    partial void UpdateKomentarze(Komentarze instance);
+    partial void DeleteKomentarze(Komentarze instance);
     partial void InsertPosty(Posty instance);
     partial void UpdatePosty(Posty instance);
     partial void DeletePosty(Posty instance);
@@ -74,14 +74,6 @@ namespace Blog.DAL
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<Komentarze> Komentarzes
-		{
-			get
-			{
-				return this.GetTable<Komentarze>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Ustawienia> Ustawienias
 		{
 			get
@@ -90,11 +82,11 @@ namespace Blog.DAL
 			}
 		}
 		
-		public System.Data.Linq.Table<PostyTagi> PostyTagis
+		public System.Data.Linq.Table<Komentarze> Komentarzes
 		{
 			get
 			{
-				return this.GetTable<PostyTagi>();
+				return this.GetTable<Komentarze>();
 			}
 		}
 		
@@ -111,6 +103,124 @@ namespace Blog.DAL
 			get
 			{
 				return this.GetTable<Tagi>();
+			}
+		}
+		
+		public System.Data.Linq.Table<PostyTagi> PostyTagis
+		{
+			get
+			{
+				return this.GetTable<PostyTagi>();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Ustawienia")]
+	public partial class Ustawienia : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _key;
+		
+		private string _value;
+		
+		private string _description;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnkeyChanging(string value);
+    partial void OnkeyChanged();
+    partial void OnvalueChanging(string value);
+    partial void OnvalueChanged();
+    partial void OndescriptionChanging(string value);
+    partial void OndescriptionChanged();
+    #endregion
+		
+		public Ustawienia()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[key]", Storage="_key", DbType="VarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string key
+		{
+			get
+			{
+				return this._key;
+			}
+			set
+			{
+				if ((this._key != value))
+				{
+					this.OnkeyChanging(value);
+					this.SendPropertyChanging();
+					this._key = value;
+					this.SendPropertyChanged("key");
+					this.OnkeyChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_value", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string value
+		{
+			get
+			{
+				return this._value;
+			}
+			set
+			{
+				if ((this._value != value))
+				{
+					this.OnvalueChanging(value);
+					this.SendPropertyChanging();
+					this._value = value;
+					this.SendPropertyChanged("value");
+					this.OnvalueChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_description", DbType="VarChar(200)")]
+		public string description
+		{
+			get
+			{
+				return this._description;
+			}
+			set
+			{
+				if ((this._description != value))
+				{
+					this.OndescriptionChanging(value);
+					this.SendPropertyChanging();
+					this._description = value;
+					this.SendPropertyChanged("description");
+					this.OndescriptionChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
@@ -159,7 +269,7 @@ namespace Blog.DAL
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int id
 		{
 			get
@@ -334,269 +444,6 @@ namespace Blog.DAL
 			if ((this.PropertyChanged != null))
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Ustawienia")]
-	public partial class Ustawienia : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _key;
-		
-		private string _value;
-		
-		private string _description;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnkeyChanging(string value);
-    partial void OnkeyChanged();
-    partial void OnvalueChanging(string value);
-    partial void OnvalueChanged();
-    partial void OndescriptionChanging(string value);
-    partial void OndescriptionChanged();
-    #endregion
-		
-		public Ustawienia()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[key]", Storage="_key", DbType="VarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string key
-		{
-			get
-			{
-				return this._key;
-			}
-			set
-			{
-				if ((this._key != value))
-				{
-					this.OnkeyChanging(value);
-					this.SendPropertyChanging();
-					this._key = value;
-					this.SendPropertyChanged("key");
-					this.OnkeyChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_value", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
-		public string value
-		{
-			get
-			{
-				return this._value;
-			}
-			set
-			{
-				if ((this._value != value))
-				{
-					this.OnvalueChanging(value);
-					this.SendPropertyChanging();
-					this._value = value;
-					this.SendPropertyChanged("value");
-					this.OnvalueChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_description", DbType="VarChar(200)")]
-		public string description
-		{
-			get
-			{
-				return this._description;
-			}
-			set
-			{
-				if ((this._description != value))
-				{
-					this.OndescriptionChanging(value);
-					this.SendPropertyChanging();
-					this._description = value;
-					this.SendPropertyChanged("description");
-					this.OndescriptionChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.PostyTagi")]
-	public partial class PostyTagi
-	{
-		
-		private int _id;
-		
-		private System.DateTime _data_dodania;
-		
-		private string _tytul;
-		
-		private string _tresc;
-		
-		private int _status;
-		
-		private System.Nullable<System.DateTime> _data_modyfikacji;
-		
-		private string _keywords;
-		
-		private string _description;
-		
-		public PostyTagi()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", DbType="Int NOT NULL")]
-		public int id
-		{
-			get
-			{
-				return this._id;
-			}
-			set
-			{
-				if ((this._id != value))
-				{
-					this._id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_data_dodania", DbType="DateTime NOT NULL")]
-		public System.DateTime data_dodania
-		{
-			get
-			{
-				return this._data_dodania;
-			}
-			set
-			{
-				if ((this._data_dodania != value))
-				{
-					this._data_dodania = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tytul", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string tytul
-		{
-			get
-			{
-				return this._tytul;
-			}
-			set
-			{
-				if ((this._tytul != value))
-				{
-					this._tytul = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tresc", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
-		public string tresc
-		{
-			get
-			{
-				return this._tresc;
-			}
-			set
-			{
-				if ((this._tresc != value))
-				{
-					this._tresc = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_status", DbType="Int NOT NULL")]
-		public int status
-		{
-			get
-			{
-				return this._status;
-			}
-			set
-			{
-				if ((this._status != value))
-				{
-					this._status = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_data_modyfikacji", DbType="DateTime")]
-		public System.Nullable<System.DateTime> data_modyfikacji
-		{
-			get
-			{
-				return this._data_modyfikacji;
-			}
-			set
-			{
-				if ((this._data_modyfikacji != value))
-				{
-					this._data_modyfikacji = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_keywords", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
-		public string keywords
-		{
-			get
-			{
-				return this._keywords;
-			}
-			set
-			{
-				if ((this._keywords != value))
-				{
-					this._keywords = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_description", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
-		public string description
-		{
-			get
-			{
-				return this._description;
-			}
-			set
-			{
-				if ((this._description != value))
-				{
-					this._description = value;
-				}
 			}
 		}
 	}
@@ -990,6 +837,159 @@ namespace Blog.DAL
 			if ((this.PropertyChanged != null))
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.PostyTagi")]
+	public partial class PostyTagi
+	{
+		
+		private int _id;
+		
+		private System.DateTime _data_dodania;
+		
+		private string _tytul;
+		
+		private string _tresc;
+		
+		private int _status;
+		
+		private System.Nullable<System.DateTime> _data_modyfikacji;
+		
+		private string _keywords;
+		
+		private string _description;
+		
+		public PostyTagi()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", DbType="Int NOT NULL")]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this._id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_data_dodania", DbType="DateTime NOT NULL")]
+		public System.DateTime data_dodania
+		{
+			get
+			{
+				return this._data_dodania;
+			}
+			set
+			{
+				if ((this._data_dodania != value))
+				{
+					this._data_dodania = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tytul", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string tytul
+		{
+			get
+			{
+				return this._tytul;
+			}
+			set
+			{
+				if ((this._tytul != value))
+				{
+					this._tytul = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tresc", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string tresc
+		{
+			get
+			{
+				return this._tresc;
+			}
+			set
+			{
+				if ((this._tresc != value))
+				{
+					this._tresc = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_status", DbType="Int NOT NULL")]
+		public int status
+		{
+			get
+			{
+				return this._status;
+			}
+			set
+			{
+				if ((this._status != value))
+				{
+					this._status = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_data_modyfikacji", DbType="DateTime")]
+		public System.Nullable<System.DateTime> data_modyfikacji
+		{
+			get
+			{
+				return this._data_modyfikacji;
+			}
+			set
+			{
+				if ((this._data_modyfikacji != value))
+				{
+					this._data_modyfikacji = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_keywords", DbType="VarChar(MAX)")]
+		public string keywords
+		{
+			get
+			{
+				return this._keywords;
+			}
+			set
+			{
+				if ((this._keywords != value))
+				{
+					this._keywords = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_description", DbType="NVarChar(MAX)")]
+		public string description
+		{
+			get
+			{
+				return this._description;
+			}
+			set
+			{
+				if ((this._description != value))
+				{
+					this._description = value;
+				}
 			}
 		}
 	}

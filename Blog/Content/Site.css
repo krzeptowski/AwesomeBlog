@@ -173,12 +173,18 @@ a:hover
 {
 	padding: 10px 0 0 10px;
 }
-.post_button_edit, .post_button_delete
+.post .button_edit, .post .button_delete
 { width:17px; height:21px; position:absolute; margin-left:-17px;}
-.post_button_edit
-{ background:url("img/ico_edit.png") no-repeat top right;}
-.post_button_edit
-{ background:url("img/ico_edit.png") no-repeat top right;}
+.post .button_edit a, .post .button_delete a
+{display:block;}
+.post .button_edit
+{ background:url("img/ico_edit.png") no-repeat top right; margin-top:2px;}
+.post .button_edit:hover
+{ background:url("img/ico_edit_actv.png") no-repeat top right;}
+.post .button_delete
+{ background:url("img/ico_delete.png") no-repeat top right; margin-top:24px;}
+.post .button_delete:hover
+{ background:url("img/ico_delete_actv.png") no-repeat top right;}
 
 #left_content hr
 {

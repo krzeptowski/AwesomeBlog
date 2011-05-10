@@ -22,6 +22,13 @@
            foreach (PostTagModel post in (List<PostTagModel>)ViewData["PostyTagi"])
            { %>
                 <div class="post">
+                    
+                    <% if (Request.IsAuthenticated) { %>
+                        <div class="button_edit"><a href="/Admin/Edit/<%: post.Id.ToString() %>">&nbsp;</a></div>
+                        <div class="button_delete"><a href="/Admin/Delete/<%: post.Id.ToString() %>">&nbsp;</a></div>
+                        <%--<div class="button_delete"><%: Html.ActionLink("&nbsp;", "Delete", "Admin", new { post.Id }, new { })%></div>--%>
+                    <% } %>
+                    
                     <h2><%: Html.ActionLink(String.IsNullOrEmpty(post.Tytul)?"Brak tytułu":post.Tytul, "Details", "Post", new { post.Id }, new { tile = "post.Tytul" })%></h2>
                     <div class="time">
                     Dodano: <%: post.DataModyfikacji.ToString()%>
