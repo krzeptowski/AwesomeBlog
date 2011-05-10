@@ -1,0 +1,8 @@
+# Ten plik zawiera pliki ktore powinny byc przetworzone przez 
+# checkout_binary.sh. Mozesz dodac jakas linie jesli uwazasz, 
+# ze jakis plik lub sciezka powinna sie tutaj znalezc.
+
+Blog\App_Data\
+Blog\DAL\LinqTodbBlog.dbml
+Blog\DAL\LinqTodbBlog.dbml.layout
+Blog\DAL\LinqTodbBlog.designer.cs

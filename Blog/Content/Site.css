@@ -160,7 +160,7 @@ a:hover
 	color: #97938A;
 	font-family: Verdana,Arial,Helvetica,sans-serif;
 	font-size: 11px;
-	padding: 0 0 0 10px;
+	padding: 0 0 10px 10px;
 }
 .post .content p
 {
@@ -169,7 +169,7 @@ a:hover
 	padding: 0 10px;
 	margin-top:10px;
 }
-.post .coments
+.post .comments_count  /* zmienilem bo mi bylo potrzebne comments ;p */
 {
 	padding: 10px 0 0 10px;
 }
@@ -344,3 +344,71 @@ a:hover
 
 .clear20
 {clear:both;height:20px;}
+
+
+/*******************************************CSS dedzia********************************************/
+
+.post .comment
+{
+	color: #97938A;
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    font-size: 11px;
+    background-color: #232320;
+    margin: 0px 1px 0px 1px;
+    padding: 5px 0px 0px 0px;
+}
+
+.comment .autor
+{
+	float:left;
+	padding: 0 10px 0 10px;
+}
+
+.comment .data
+{
+	float:right;
+	padding: 0 10px 0 10px;
+}
+
+.comment .tresc
+{
+	padding: 0 20px 0 20px;
+}
+
+.comment_add_link 
+{
+}
+
+.comment_add_link .button /*tutaj trzeba cos naprawic ale nie wiem co :P */
+{
+    display:block; 
+    height:25px; 
+    border: 1px solid #8A867C; 
+    line-height:25px; 
+    text-align:center; 
+    vertical-align:middle; 
+    padding:0 5px; 
+    float:left; 
+    background-color:#444340;
+    margin:5px 5px 5px 0px;
+    
+    /***** radius corner ***/
+    -moz-border-radius:5px; /* FF */
+    -webkit-border-radius:5px; /* przeglądarki z webkitem (Safari, Chrome itp.) */
+	-khtml-border-radius:5px; /* przeglądarki typu K-meleon (typowo Linuxowe) */
+	border-radius:5px; /* pozostałe przeglądarki */
+	/*ie nie chce mi sie dodawać bo wymaga dodatkowych skryptow*/
+}
+
+.new_comment
+{
+	margin: 0px 10px 0px;
+}
+
+/********************* formularz dodawania komentarzy *********************************/
+.new_comment .editor-field input
+{ background-color: #202020; color: #FFFFFF; width: 740px; padding:3px; }
+.new_comment .editor-field textarea
+{ background-color: #202020; color: #FFFFFF; width: 740px; padding:3px; }
+.new_comment .editor-field select
+{ background-color: #202020; color: #FFFFFF; width: 100px; padding:3px; }

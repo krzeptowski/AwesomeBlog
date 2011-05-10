@@ -5,7 +5,10 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+</asp:Content>
 
+<asp:Content ID="Content3" ContentPlaceHolderID="LeftContent" runat="server">
+    
     <div class="post">
         <% PostModel post = (PostModel)ViewData["Post"]; %>
         <% TagModel tagi = (TagModel)ViewData["Tagi"]; %>
@@ -37,23 +40,34 @@
         <div class="content">
             <%= post.Tresc %>
         </div>
-        <div class="coments"><a href="Post/Details/<%: post.Id %>" title=""><%: komentarze.Count(i => i.IdPosta == post.Id).ToString()%> Komentarzy</a></div>
-    </div>
-    
-    <div class="post_komentarze">
-        <% foreach (KomentarzModel each in komentarze)
-           { %>
-           <div class="komentarz_top">
-               <%: each.Autor%>
-               <%: each.DataDodania%> <br />
-               <%: each.Tresc%>
+        <hr />
+        <% bool trigger = true;
+           foreach (KomentarzModel each in komentarze)
+           {
+               string style = "";
+               string name = "background-color:";
+               string color = "";
+               if (!trigger)
+                   style = name + "#34342F";
+               else
+                   style = "";
+               trigger = !trigger;
+               %>
+            <div class="comment" style="<%: style %>">
+               <div class="autor">Autor: <%: each.Autor%></div>
+               <div class="data">Dodano: <%: each.DataDodania%></div> <br /> <br />
+               <div class="tresc"><%: each.Tresc%></div> <br />
+               <hr />
            </div>
         <%  }%>
-    </div>
 
-     <div class="komentarz_dodaj">
-     <%: Html.ActionLink("Tworz", "Create", "Post", new { idPosta = post.Id }) %>
-     </div>
+        <div class="comment_add_link">
+            <div class="comment_add_link button">
+                <%: Html.ActionLink("Dodaj komentarz", "Create", "Komentarz", new { post.Id }, null) %> 
+                <%--TODO: tutaj trzeba cos naprawic ale nie wiem co ;P--%>
+            </div>
+        </div>
+    </div>
 
 <%--Zostawiam do ajaxa. Moze sie przyda --%>
 <%--    <div class="komentarz_dodaj">
