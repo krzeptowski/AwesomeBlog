@@ -13,6 +13,8 @@ namespace Blog.DAL
         List<KomentarzModel> PobierzWszystkie();
         int PobierzIloscDlaID(int idPosta);
         void DodajKomentarz(int idPosta, string autor, string tresc, int status);
+        void UsunKomentarz(int id);
+        void UsunKomentarzeDlaPosta(int idPosta);
     }
 
     public class KomentarzDAL : IKomentarz
@@ -83,6 +85,30 @@ namespace Blog.DAL
                 };
 
                 context.Komentarzes.InsertOnSubmit(k);
+                context.SubmitChanges();
+            }
+        }
+
+        public void UsunKomentarz(int id)
+        {
+            using (LinqTodbBlogDataContext context = new LinqTodbBlogDataContext())
+            {
+                Komentarze kom = context.Komentarzes.Single(k => k.id == id);
+
+                context.Komentarzes.DeleteOnSubmit(kom);
+                context.SubmitChanges();
+            }
+        }
+
+        public void UsunKomentarzeDlaPosta(int idPosta)
+        {
+            using (LinqTodbBlogDataContext context = new LinqTodbBlogDataContext())
+            {
+                var komentarze = from a in context.Komentarzes
+                                 where a.id_posta == idPosta
+                                 select a;
+
+                context.Komentarzes.DeleteAllOnSubmit(komentarze);
                 context.SubmitChanges();
             }
         }
