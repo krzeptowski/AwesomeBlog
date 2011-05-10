@@ -58,7 +58,7 @@ namespace Blog.Controllers
             return View();
         }
 
-        //
+
         // GET: /Post/Create
 
         public ActionResult Create()
@@ -66,7 +66,7 @@ namespace Blog.Controllers
             return View();
         }
 
-        //
+
         // POST: /Post/Create
 
         [HttpPost]
@@ -83,7 +83,7 @@ namespace Blog.Controllers
             }
         }
         
-        //
+
         // GET: /Post/Edit/5
  
         public ActionResult Edit(int id)
@@ -91,7 +91,7 @@ namespace Blog.Controllers
             return View();
         }
 
-        //
+ 
         // POST: /Post/Edit/5
 
         [HttpPost]
@@ -108,7 +108,7 @@ namespace Blog.Controllers
             }
         }
 
-        //
+
         // GET: /Post/Delete/5
  
         public ActionResult Delete(int id)
@@ -116,7 +116,7 @@ namespace Blog.Controllers
             return View();
         }
 
-        //
+
         // POST: /Post/Delete/5
 
         [HttpPost]
