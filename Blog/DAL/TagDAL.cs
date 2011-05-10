@@ -13,11 +13,27 @@ namespace Blog.DAL
         List<TagModel> PobierzWszystkie();
         void DodajTag(int idPosta, string keywords, string desc);
         void EdytujTag(int idPosta, string keywords);
+        void UsunTagiPostu(int idPosta);
     }
 
     public class TagDAL : ITag
     {
         #region ITag Members
+
+        public void UsunTagiPostu(int idPosta)
+        {
+            using (LinqTodbBlogDataContext db = new LinqTodbBlogDataContext())
+            {
+                try
+                {
+                    var lista = from a in db.Tagis where a.id_posta == idPosta select a;
+                    db.Tagis.DeleteAllOnSubmit(lista);
+                    db.SubmitChanges();
+                }
+                catch (Exception)
+                { throw new Exception("Wystąpił błąd podczas usuwania tagów"); }
+            }
+        }
 
         public TagModel PobierzTagPosta(int id)
         {

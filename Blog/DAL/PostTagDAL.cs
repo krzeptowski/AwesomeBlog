@@ -9,6 +9,7 @@ namespace Blog.DAL
     {
         int dodajPost(Models.PostTagModel model);
         List<Models.PostTagModel> pobierzPorcje(int ile, int offset);
+        bool usunPost(int id);
     }
 
     public class PostTagDAL:IPostTag
@@ -75,6 +76,26 @@ namespace Blog.DAL
                 catch (Exception)
                 {
                     throw new Exception("Wystąpił błąd podczas pobierania wpisów");
+                }
+            }
+        }
+        public bool usunPost(int id)
+        {
+            using (LinqTodbBlogDataContext db = new LinqTodbBlogDataContext())
+            {
+                try
+                {
+                    new KomentarzDAL().UsunKomentarzeDlaPosta(id);
+                    new TagDAL().UsunTagiPostu(id);
+
+                    var post = (from a in db.Posties where a.id == id select a).Single();
+                    db.Posties.DeleteOnSubmit(post);
+                    db.SubmitChanges();
+                    return true;
+                }
+                catch (Exception)
+                {
+                    throw new Exception("Wystąpił błąd podczas usuwania wpisu");
                 }
             }
         }

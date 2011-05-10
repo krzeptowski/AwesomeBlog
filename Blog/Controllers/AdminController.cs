@@ -92,25 +92,33 @@ namespace Blog.Controllers
         [Authorize(Roles = "Administracja")]
         public ActionResult Delete(int id)
         {
-            return View();
+            try
+            {
+                _PostTag.usunPost(id);
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return RedirectToAction("Index");
+            }
         }
 
         //TODO
         // POST: /Admin/Delete/5
 
-        [HttpPost]
-        [Authorize(Roles = "Administracja")]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
- 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
+        //[HttpPost]
+        //[Authorize(Roles = "Administracja")]
+        //public ActionResult Delete(int id)
+        //{
+        //    try
+        //    {
+        //        _PostTag.usunPost(id);
+        //        return RedirectToAction("Index");
+        //    }
+        //    catch
+        //    {
+        //        return View();
+        //    }
+        //}
     }
 }
