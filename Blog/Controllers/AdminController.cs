@@ -112,5 +112,11 @@ namespace Blog.Controllers
                 return View();
             }
         }
+
+        [Authorize(Roles = "Administracja")]
+        public ActionResult Delete(int id)
+        {
+            return View();
+        }
     }
 }
