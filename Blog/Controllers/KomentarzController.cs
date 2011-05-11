@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -17,7 +17,7 @@ namespace Blog.Controllers
         {
             _komenatrze = new KomentarzDAL();
         }
-        //
+
         // GET: /Komentarz/
 
         public ActionResult Index()
@@ -25,7 +25,7 @@ namespace Blog.Controllers
             return View();
         }
 
-        //
+ 
         // GET: /Komentarz/Details/5
 
         public ActionResult Details(int id)
@@ -33,7 +33,7 @@ namespace Blog.Controllers
             return View();
         }
 
-        //
+   
         // GET: /Komentarz/Create
 
         public ActionResult Create(int id)
@@ -42,7 +42,7 @@ namespace Blog.Controllers
             return View();
         }
 
-        //
+        
         // POST: /Komentarz/Create
 
         [HttpPost]
@@ -65,7 +65,7 @@ namespace Blog.Controllers
             }
         }
         
-        //
+        
         // GET: /Komentarz/Edit/5
  
         public ActionResult Edit(int id)
@@ -73,7 +73,7 @@ namespace Blog.Controllers
             return View();
         }
 
-        //
+        
         // POST: /Komentarz/Edit/5
 
         [HttpPost]
@@ -89,7 +89,7 @@ namespace Blog.Controllers
             }
         }
 
-        //
+       
         // GET: /Komentarz/Delete/5
  
         public ActionResult Delete(int id)
@@ -97,7 +97,7 @@ namespace Blog.Controllers
             return View();
         }
 
-        //
+       
         // POST: /Komentarz/Delete/5
 
         [HttpPost]
