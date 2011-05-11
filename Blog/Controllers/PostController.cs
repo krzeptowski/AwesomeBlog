@@ -33,7 +33,7 @@ namespace Blog.Controllers
         //
         // GET: /Post/Details/5
 
-        public ActionResult Details(int id, KomentarzModel model)
+        public ActionResult Details(int id/*, KomentarzModel model*/)
         {
             ViewData["Post"] = _posty.PobierzPost(id);
             ViewData["Tagi"] = _tagi.PobierzTagPosta(id);
@@ -68,7 +68,7 @@ namespace Blog.Controllers
 
                 _posty.DodajPost(tytul, tresc, status, tagi, opis);
 
-                return RedirectToAction("../Home/Index");
+                return RedirectToAction("Index", "Home");
             }
             catch
             {
@@ -86,10 +86,10 @@ namespace Blog.Controllers
             TagModel tagi = _tagi.PobierzTagPosta(post.Id);
 
             if(post == null)
-                return RedirectToAction("../Home/Index");//no such post
+                return RedirectToAction("Index", "Home");//no such post
 
             if(tagi == null)
-                return RedirectToAction("../Home/Index");//no such tag
+                return RedirectToAction("Index", "Home");//no such tag
 
 
             ViewData["post"] = post;
@@ -115,7 +115,7 @@ namespace Blog.Controllers
 
                 _posty.EdytujPost(id, tytul, tresc, status, tagi, opis);
 
-                return RedirectToAction("../Home/Index");
+                return RedirectToAction("Index", "Home");
             }
             catch
             {
@@ -141,12 +141,20 @@ namespace Blog.Controllers
         {
             try
             {
-                return RedirectToAction("../Home/Index");
+                return RedirectToAction("Index","Home");
             }
             catch
             {
                 return View();
             }
+        }
+
+        public ActionResult Pokaz(string tytul)
+        {
+            int id = _posty.WyciagnijIdPosta(tytul);
+            return RedirectToAction("Details", new { id=id});
+
+            //return View("Details",_posty.WyciagnijIdPosta(tytul));
         }
     }
 }
