@@ -16,7 +16,8 @@
         <%= Html.TextBox("Tresc", ((PostModel)ViewData["post"]).Tresc) %><br />
 
         <%= Html.Label("Status") %><br />
-        <%= Html.CheckBox("Status", ((PostModel)ViewData["post"]).Status) %><br />
+        <% bool state = ((PostModel)ViewData["post"]).Status == 1 ? true : false; %>
+        <%= Html.CheckBox("Status", state)%><br />
 
         <%= Html.Label("Tagi") %><br />
         <%= Html.TextBox("Tagi", ((TagModel)ViewData["tagi"]).Keywords) %><br />

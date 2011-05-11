@@ -13,7 +13,7 @@ namespace Blog.DAL
         List<KomentarzModel> PobierzWszystkie();
         int PobierzIloscDlaID(int idPosta);
         void DodajKomentarz(int idPosta, string autor, string tresc, int status);
-        void UsunKomentarz(int id);
+        bool UsunKomentarz(int id);
         void UsunKomentarzeDlaPosta(int idPosta);
     }
 
@@ -89,14 +89,22 @@ namespace Blog.DAL
             }
         }
 
-        public void UsunKomentarz(int id)
+        public bool UsunKomentarz(int id)
         {
             using (LinqTodbBlogDataContext context = new LinqTodbBlogDataContext())
             {
-                Komentarze kom = context.Komentarzes.Single(k => k.id == id);
+                try
+                {
+                    Komentarze kom = context.Komentarzes.Single(k => k.id == id);
 
-                context.Komentarzes.DeleteOnSubmit(kom);
-                context.SubmitChanges();
+                    context.Komentarzes.DeleteOnSubmit(kom);
+                    context.SubmitChanges();
+                }
+                catch (InvalidOperationException ex)
+                {
+                    return false;
+                }
+                return true;
             }
         }
 

@@ -12,7 +12,7 @@ namespace Blog.DAL
         PostModel PobierzPost(int id);
         List<PostModel> PobierzWszystkie();
         int DodajPost(string tytul, string tresc, int status);
-        void DodajPost(string tytul, string tresc, int status, string tagi, string opis);
+        int DodajPost(string tytul, string tresc, int status, string tagi, string opis);
         void EdytujPost(int id, string tytul, string tresc, int status);
         void EdytujPost(int id, string tytul, string tresc, int status, string tagi, string opis);
     }
@@ -20,11 +20,6 @@ namespace Blog.DAL
     public class PostDAL : IPost
     {
         #region IPost Members
-
-        public void DodajPost(PostModel post)
-        {
-            throw new NotImplementedException();
-        }
 
         public int DodajPost(string tytul, string tresc, int status)
         {
@@ -82,7 +77,7 @@ namespace Blog.DAL
             }
         }
 
-        public void DodajPost(string tytul, string tresc, int status, string tagi, string opis)
+        public int DodajPost(string tytul, string tresc, int status, string tagi, string opis)
         {
             using (LinqTodbBlogDataContext context = new LinqTodbBlogDataContext())
             {
@@ -106,6 +101,8 @@ namespace Blog.DAL
 
                 context.Tagis.InsertOnSubmit(t);
                 context.SubmitChanges();
+
+                return p.id;
             }
         }
 

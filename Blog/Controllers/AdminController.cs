@@ -9,10 +9,12 @@ namespace Blog.Controllers
     public class AdminController : Controller
     {
         DAL.IPostTag _PostTag;
+        DAL.IKomentarz _Komentarz;
 
         public AdminController()
         {
             _PostTag = new DAL.PostTagDAL();
+            _Komentarz = new DAL.KomentarzDAL();
         }
 
         //TODO
@@ -114,9 +116,25 @@ namespace Blog.Controllers
         }
 
         [Authorize(Roles = "Administracja")]
-        public ActionResult Delete(int id)
+        public ActionResult DeleteComment(int idPosta, int id)
         {
-            return View();
+            try
+            {
+                if (_Komentarz.UsunKomentarz(id))
+                {
+                    return RedirectToAction("Details", "Post", new { id = idPosta });
+                }
+                else
+                {
+                    ViewData["error"] = "Nie ma komentarza o takim ID";
+                    //TODO: Zrobic strone z bledami
+                    return RedirectToAction("Details", "Post", new { id = idPosta });
+                }
+            }
+            catch
+            {
+                return View();
+            }
         }
     }
 }

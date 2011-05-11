@@ -33,11 +33,10 @@ namespace Blog.DAL
                               Desc = tag.description
                           };
                 }
-                catch(InvalidOperationException)
+                catch(InvalidOperationException ex)
                 {
                     return null;
                 }
-                          
             }
         }
 

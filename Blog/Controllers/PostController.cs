@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web; 
 using System.Web.Mvc;
-//using System.Web.
 
 using Blog.DAL;
 using Blog.Models;
 
-//TODO: Zrobic zabezpieczenie przed wywolaniem posta ktory nie istnieje
+//TODO: Zrobic zabezpieczenie przed wywolaniem posta ktory nie istnieje!
 //TODO: Zrobic walidacje do formularzy (problem -> modele)
 //TODO: Poprawic redirecty
 
@@ -66,9 +65,9 @@ namespace Blog.Controllers
                 string tagi = collection["Tagi"];
                 string opis = collection["Opis"];
 
-                _posty.DodajPost(tytul, tresc, status, tagi, opis);
+                int id = _posty.DodajPost(tytul, tresc, status, tagi, opis);
 
-                return RedirectToAction("../Home/Index");
+                return RedirectToAction("Details", "Post", new { id = id });
             }
             catch
             {
@@ -85,16 +84,20 @@ namespace Blog.Controllers
             PostModel post = _posty.PobierzPost(id);
             TagModel tagi = _tagi.PobierzTagPosta(post.Id);
 
-            if(post == null)
-                return RedirectToAction("../Home/Index");//no such post
+            if (post == null)
+            {
+                ViewData["error"] = "Nie ma takiego postu!";
+                return RedirectToAction("Index", "Post");
+            }
 
-            if(tagi == null)
-                return RedirectToAction("../Home/Index");//no such tag
+            if (tagi != null)
+                ViewData["tagi"] = tagi;
+            else
+                ViewData["tagi"] = "";
 
 
             ViewData["post"] = post;
-            ViewData["tagi"] = tagi;
-
+            
             return View();
         }
 
