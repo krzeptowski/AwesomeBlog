@@ -30,7 +30,7 @@ namespace Blog.Controllers
 
         public ActionResult Index(int? offset)
         {
-            ViewData["PostyTagi"] = _postTag.pobierzPorcje(Int16.Parse(_ustawienia.getSettings("ilosc_pozycji_na_strone")),(offset==null)?0:(int)offset);
+            ViewData["PostyTagi"] = _postTag.pobierzPorcje(Int16.Parse(_ustawienia.getSettings("ilosc_pozycji_na_strone")),(offset==null||offset==0)?0:(int)offset-1);
             ViewData["Komentarze"] = _komentarze.PobierzWszystkie();
             return View();
         }
