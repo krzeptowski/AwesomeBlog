@@ -30,7 +30,7 @@ namespace Blog.Controllers
         public ActionResult Create()
         {
             return View();
-        } 
+        }
 
         // POST: /Admin/Create
         [HttpPost]
@@ -41,8 +41,8 @@ namespace Blog.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    model.Id=_PostTag.dodajPost(model);
-                    if (model.Id==0)
+                    model.Id = _PostTag.dodajPost(model);
+                    if (model.Id == 0)
                     {
                         /*dodanie wpisu nie powiodło się*/
                         ViewData["result"] = "Dodanie nowego wpisu nie powiodło się. Spróbuj ponownie, jeśli problem będzie się powtarzać skontaktuj się z administratorem.";
@@ -55,15 +55,15 @@ namespace Blog.Controllers
                 }
 
                 /*po prawidłowym wykonaniu:*/
-                return RedirectToAction("Details", "Post", new { model.Id}); //Można pokombinowac żeby przejść do Post/Details/id< 
+                return RedirectToAction("Details", "Post", new { model.Id }); //Można pokombinowac żeby przejść do Post/Details/id< 
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 ViewData["result"] = e.Message.ToString();
                 return View(model);
             }
         }
-        
+
         //TODO
         // GET: /Admin/Edit/5
         [Authorize(Roles = "Administracja")]
@@ -94,26 +94,19 @@ namespace Blog.Controllers
         [Authorize(Roles = "Administracja")]
         public ActionResult Delete(int id)
         {
-            return View();
-        }
-
-        //TODO
-        // POST: /Admin/Delete/5
-
-        [HttpPost]
-        [Authorize(Roles = "Administracja")]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
             try
             {
- 
+                _PostTag.usunPost(id);
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                return RedirectToAction("Index");
             }
         }
+        //TODO
+        // POST: /Admin/Delete/5
+
 
         [Authorize(Roles = "Administracja")]
         public ActionResult DeleteComment(int idPosta, int id)

@@ -18,7 +18,7 @@ namespace Blog.Models
         //public DateTime? DataModyfikacji { get; set; }
         
         //public int IdPosta { get; set; } - już jest w PostModel
-
+        //----------------Tagi---------
         [DisplayName("Słowa kluczowe")]
         public string Keywords { get; set; }
 

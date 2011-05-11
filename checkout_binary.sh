@@ -17,7 +17,7 @@ fi
 
 for file in `cat binaryfiles.lst | grep -v "^#" | grep -v "^$"`
 do
-	git checkout $1 file
-	git add file
+	git checkout $1 $file
+	git add $file
 done
 
