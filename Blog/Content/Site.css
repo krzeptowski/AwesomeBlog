@@ -375,10 +375,6 @@ a:hover
 	padding: 0 20px 0 20px;
 }
 
-.comment_add_link 
-{
-}
-
 .comment_add_link .button /*tutaj trzeba cos naprawic ale nie wiem co :P */
 {
     display:block; 
@@ -388,9 +384,10 @@ a:hover
     text-align:center; 
     vertical-align:middle; 
     padding:0 5px; 
-    float:left; 
+    /*float:left; */
     background-color:#444340;
-    margin:5px 5px 5px 0px;
+    margin:10px auto 5px;
+    width:100px;
     
     /***** radius corner ***/
     -moz-border-radius:5px; /* FF */

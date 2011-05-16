@@ -24,17 +24,22 @@
                     List<string> tags = (tagi.Keywords.Split(", \\".ToCharArray())).Take(4).ToList();
                     foreach (String tag in tags)
                     { %>
-                        <a href="" title="Zobacz wszystkie wpisy oznaczone jako: <%: tag %>"><%: tag.ToLower() %></a><%--: (tags.IndexOf(tag) < tags.Count - 1)?",":""--%>
+                        <a href="" title="Zobacz wszystkie wpisy oznaczone jako: <%: tag %>"><%: tag.ToLower()%></a>
                     <% }
                 }
-                catch (Exception e)
+                catch(NullReferenceException)
                 {
-                    if (e.Message.ToString() == "Sequence contains no matching element")
-                    { %>brak przypisanych tagów<% }
-                    else
-                    { %>wystąpił błąd<% }
+                    %>brak przypisanych tagów<%
+                }    
+                catch(InvalidOperationException)
+                {
+                    %>brak przypisanych tagów<%
                 }
-                %>
+                catch (Exception)
+                {
+                    %>wystąpił błąd<%
+                }
+            %>
         </div>
         <div style="clear:both;"></div>  
         <div class="content">
