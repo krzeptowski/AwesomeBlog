@@ -278,7 +278,7 @@ a:hover
     border-color:#9A9646;
 }
 /********************* formularz editor *********************************/
-.new_post .editor-field input
+.new_post .editor-field input, .logon .editor-field input
 { background-color: #202020; color: #FFFFFF; width: 740px; padding:3px; }
 .new_post .editor-field textarea
 { background-color: #202020; color: #FFFFFF; width: 740px; padding:3px; }

@@ -1,14 +1,11 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<Blog.Models.LogOnModel>" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Views/Shared/SiteClear.Master" Inherits="System.Web.Mvc.ViewPage<Blog.Models.LogOnModel>" %>
 
 <asp:Content ID="loginTitle" ContentPlaceHolderID="TitleContent" runat="server">
     Logowanie
 </asp:Content>
 
 <asp:Content ID="main" ContentPlaceHolderID="MainContent" runat="server">
-</asp:Content>
-
-<asp:Content ID="loginContent" ContentPlaceHolderID="LeftContent" runat="server">
-    <div class="inside_left_content">
+    <div class="logon">
         <h2>Logowanie</h2>
         <p>
             Wprowadź login oraz hasło używkotnika. <%--Html.ActionLink("Register", "Register")--%>
@@ -17,7 +14,7 @@
         <% using (Html.BeginForm()) { %>
             <span class="error"><%: Html.ValidationSummary(true, "Logowanie nie powiodło się. Sprawdź listę błędów i ponów próbę.") %></span>
             <div>
-                <fieldset class="fieldset">
+                <fieldset class="fieldset radius">
                     <legend>Dane użytkownika</legend>
                 
                     <div class="editor-label">
@@ -41,9 +38,8 @@
                         <%: Html.LabelFor(m => m.RememberMe) %>
                     </div>
                 
-                    <p>
-                        <input type="submit" value="Zaloguj" />
-                    </p>
+                    <div class="button"><input type="submit" value="Zaloguj" class="button_label"/></div>
+                    <!--<input type="submit" value="Zaloguj" />-->
                 </fieldset>
             </div>
         <% } %>
