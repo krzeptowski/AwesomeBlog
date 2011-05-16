@@ -18,22 +18,7 @@ namespace Blog.Controllers
             _komenatrze = new KomentarzDAL();
         }
 
-        // GET: /Komentarz/
-
-        public ActionResult Index()
-        {
-            return View();
-        }
-
- 
-        // GET: /Komentarz/Details/5
-
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-   
+        #region komentarz/create
         // GET: /Komentarz/Create
 
         public ActionResult Create(int id)
@@ -42,7 +27,6 @@ namespace Blog.Controllers
             return View();
         }
 
-        
         // POST: /Komentarz/Create
 
         [HttpPost]
@@ -64,18 +48,18 @@ namespace Blog.Controllers
                 return View();
             }
         }
-        
-        
+        #endregion
+
+        #region komentarz/edit
+        // TODO: komentarz/edit -get
         // GET: /Komentarz/Edit/5
- 
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        
+        // TODO: komentarz/edit -post
         // POST: /Komentarz/Edit/5
-
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
@@ -88,18 +72,18 @@ namespace Blog.Controllers
                 return View();
             }
         }
+        #endregion
 
-       
+        #region komentarz/delete
+        //TODO: komentarz/delete -get
         // GET: /Komentarz/Delete/5
- 
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-       
+        //TODO: komentarz/delete post    
         // POST: /Komentarz/Delete/5
-
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
@@ -112,5 +96,6 @@ namespace Blog.Controllers
                 return View();
             }
         }
+        #endregion 
     }
 }

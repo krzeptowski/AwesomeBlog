@@ -14,7 +14,13 @@
         <% TagModel tagi = (TagModel)ViewData["Tagi"]; %>
         <% List<KomentarzModel> komentarze = (List<KomentarzModel>)ViewData["Komentarze"]; %>
 
-        <h2><a href="Post/Details/<%: post.Id %>" title="<%: post.Tytul %>"><%: post.Tytul %></a></h2>
+        <% if (Request.IsAuthenticated) { %>
+            <div class="button_edit"><a href="/Admin/Edit/<%: post.Id.ToString() %>">&nbsp;</a></div>
+            <div class="button_delete"><a href="/Admin/Delete/<%: post.Id.ToString() %>">&nbsp;</a></div>
+            <%--<div class="button_delete"><%: Html.ActionLink("&nbsp;", "Delete", "Admin", new { post.Id }, new { })%></div>--%>
+        <% } %>
+
+        <h2><%: post.Tytul %></h2>
         <div class="time">
         Dodano: <%: post.DataModyfikacji.ToString() %>
             &nbsp|&nbsp Tagi: 
@@ -59,6 +65,8 @@
                trigger = !trigger;
                %>
             <div class="comment" style="<%: style %>">
+                <div class="button_delete"><a href="/Admin/DeleteComment/<%: each.Id %>,<%: post.Id %>">&nbsp;</a></div>
+                <!--<div class="button_delete"><a href="/Admin/DeleteComment/<%--: each.Id --%>">&nbsp;</a></div>-->
                <div class="autor">Autor: <%: each.Autor%></div>
                <div class="data">Dodano: <%: each.DataDodania%></div> <br /> <br />
                <div class="tresc"><%: each.Tresc%></div> <br />

@@ -41,15 +41,24 @@ namespace Blog.DAL
             {
                 try
                 {
-                    var tag = context.Tagis.Single(t => t.id_posta == id);
-                    return new TagModel
-                          {
-                              IdPosta = tag.id_posta,
-                              Keywords = tag.keywords,
-                              Desc = tag.description
-                          };
+                    var tagi = (from a in context.Tagis
+                                where a.id_posta == id
+                                select new TagModel
+                                {
+                                    IdPosta = a.id_posta,
+                                    Desc = a.description,
+                                    Keywords = a.keywords
+                                }).Single();
+                    //var tag = context.Tagis.Single(t => t.id_posta == id);
+                    //return new TagModel
+                    //      {
+                    //          IdPosta = tag.id_posta,
+                    //          Keywords = tag.keywords,
+                    //          Desc = tag.description
+                    //      };
+                    return tagi;
                 }
-                catch(InvalidOperationException)
+                catch (InvalidOperationException)
                 {
                     return null;
                 }

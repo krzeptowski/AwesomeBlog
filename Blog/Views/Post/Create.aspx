@@ -25,7 +25,7 @@
             <%= Html.Label("Opis") %><br />
             <%= Html.TextBox("Opis", "")%><br />
 
-            <input value="Submit" type="submit" />
+            <input value="Dodaj" type="submit" />
         </fieldset>
         <% } %>
     </div>

@@ -35,6 +35,12 @@ namespace Blog
                 );
 
             routes.MapRoute(
+                "UsunKomentarz",
+                "Admin/DeleteComment/{id},{idPost}",
+                new { controller = "Admin", action = "DeleteComment", id = UrlParameter.Optional, idPost = UrlParameter.Optional }
+                );
+
+            routes.MapRoute(
                 "Default", // Route name
                 "{controller}/{action}/{id}", // URL with parameters
                 new { controller = "Home", action = "Index", id = UrlParameter.Optional } // Parameter defaults

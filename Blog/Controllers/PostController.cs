@@ -76,9 +76,7 @@ namespace Blog.Controllers
             }
         }
         
-        //
         // GET: /Post/Edit/5
-        
         [Authorize(Roles = "Administracja")]
         public ActionResult Edit(int id)
         {
@@ -109,7 +107,7 @@ namespace Blog.Controllers
             {
                 string tytul = collection["Tytul"];
                 string tresc = collection["Tresc"];
-                int status = Convert.ToInt16(Convert.ToBoolean(collection["Status"]));
+                int status = Int32.Parse(collection["Status"]);
                 string tagi = collection["Tagi"];
                 string opis = collection["Opis"];
 
