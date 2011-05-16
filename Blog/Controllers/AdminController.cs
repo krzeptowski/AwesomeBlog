@@ -15,7 +15,7 @@ namespace Blog.Controllers
             _PostTag = new DAL.PostTagDAL();
         }
 
-        //TODO
+        //TODO: admin/index-get
         // GET: /Admin/
         [Authorize(Roles = "Administracja")]
         public ActionResult Index()
@@ -62,7 +62,7 @@ namespace Blog.Controllers
             }
         }
 
-        //TODO
+        //TODO: admin/edit-get
         // GET: /Admin/Edit/5
         [Authorize(Roles = "Administracja")]
         public ActionResult Edit(int id)
@@ -70,9 +70,8 @@ namespace Blog.Controllers
             return View();
         }
 
-        //TODO
+        //TODO: admin/edit-post
         // POST: /Admin/Edit/5
-
         [HttpPost]
         [Authorize(Roles = "Administracja")]
         public ActionResult Edit(int id, FormCollection collection)
@@ -87,7 +86,6 @@ namespace Blog.Controllers
             }
         }
 
-        //TODO
         // GET: /Admin/Delete/5
         [Authorize(Roles = "Administracja")]
         public ActionResult Delete(int id)
@@ -102,22 +100,5 @@ namespace Blog.Controllers
                 return RedirectToAction("Index");
             }
         }
-        //TODO
-        // POST: /Admin/Delete/5
-
-        //[HttpPost]
-        //[Authorize(Roles = "Administracja")]
-        //public ActionResult Delete(int id)
-        //{
-        //    try
-        //    {
-        //        _PostTag.usunPost(id);
-        //        return RedirectToAction("Index");
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
-        //}
     }
 }

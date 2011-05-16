@@ -75,5 +75,8 @@
        {%>
             <span class="allert">Brak kolekcji wpisów</span>
     <% } %>
+    <div id="posts_navigation">
+        <% Html.RenderPartial("PostsNavigation"); %>
+    </div>
 
 </asp:Content>

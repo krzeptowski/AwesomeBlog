@@ -10,6 +10,7 @@ namespace Blog.DAL
         int dodajPost(Models.PostTagModel model);
         List<Models.PostTagModel> pobierzPorcje(int ile, int offset);
         bool usunPost(int id);
+        int ileWszystkichAktywnych();
     }
 
     public class PostTagDAL:IPostTag
@@ -92,6 +93,20 @@ namespace Blog.DAL
                     db.Posties.DeleteOnSubmit(post);
                     db.SubmitChanges();
                     return true;
+                }
+                catch (Exception)
+                {
+                    throw new Exception("Wystąpił błąd podczas usuwania wpisu");
+                }
+            }
+        }
+        public int ileWszystkichAktywnych()
+        {
+            using (LinqTodbBlogDataContext db = new LinqTodbBlogDataContext())
+            {
+                try
+                {
+                    return (from a in db.Posties where a.status == 1 select a).Count();
                 }
                 catch (Exception)
                 {

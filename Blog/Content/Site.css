@@ -210,6 +210,13 @@ a:hover
 .inside_left_content
 {padding:0 20px;}
 
+#posts_navigation
+{border-top: 2px solid #AAC028; margin-top:20px; padding-top:10px; text-align:center;}
+#posts_navigation .left
+{float:left; padding-left:10px;}
+#posts_navigation .right
+{float:right; padding-right:10px;}
+
 #footer_top
 {
 	background:url(img/footer_top.gif) no-repeat top left;
@@ -344,6 +351,12 @@ a:hover
 
 .clear20
 {clear:both;height:20px;}
+.clear
+{clear:both;}
+.left
+{float:left;}
+.right
+{float:right;}
 
 
 /*******************************************CSS dedzia********************************************/

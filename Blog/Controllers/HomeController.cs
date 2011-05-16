@@ -32,13 +32,17 @@ namespace Blog.Controllers
         {
             ViewData["PostyTagi"] = _postTag.pobierzPorcje(Int16.Parse(_ustawienia.getSettings("ilosc_pozycji_na_strone")),(offset==null||offset==0)?0:(int)offset-1);
             ViewData["Komentarze"] = _komentarze.PobierzWszystkie();
+            //Lista(aktywna strona, liczba postow, elementów w porcji)
+            ViewData["Nawigacja"] = new List<int> { (offset == null || offset == 0) ? 1 : (int)offset, _postTag.ileWszystkichAktywnych(), Int16.Parse(_ustawienia.getSettings("ilosc_pozycji_na_strone")) };
             return View();
         }
 
-        //public ActionResult Indexx()
+        //public ActionResult Indexx(int? offset)
         //{
-        //    ViewData["PostyTagi"] = _postTag.pobierzPorcje(Int16.Parse(_ustawienia.getSettings("ilosc_pozycji_na_strone")), 0);
+        //    ViewData["PostyTagi"] = _postTag.pobierzPorcje(Int16.Parse(_ustawienia.getSettings("ilosc_pozycji_na_strone")), (offset == null || offset == 0) ? 0 : (int)offset - 1);
         //    ViewData["Komentarze"] = _komentarze.PobierzWszystkie();
+        //    //Lista(aktywna strona, liczba postow, elementów w porcji)
+        //    ViewData["Nawigacja"] = new List<int> { (offset == null || offset == 0) ? 1 : (int)offset, _postTag.ileWszystkichAktywnych(), Int16.Parse(_ustawienia.getSettings("ilosc_pozycji_na_strone")) };
         //    return View();
         //}
 
