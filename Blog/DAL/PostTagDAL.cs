@@ -11,9 +11,10 @@ namespace Blog.DAL
         List<Models.PostTagModel> pobierzPorcje(int ile, int offset);
         bool usunPost(int id);
         int ileWszystkichAktywnych();
+        List<Models.PostTagModel> pobierzZTagiem(string tag);
     }
 
-    public class PostTagDAL:IPostTag
+    public class PostTagDAL : IPostTag
     {
         public int dodajPost(Models.PostTagModel model)
         {
@@ -42,7 +43,7 @@ namespace Blog.DAL
 
                     db.Tagis.InsertOnSubmit(t);
                     db.SubmitChanges();
-                    
+
                     return p.id;
                 }
                 catch (Exception)
@@ -71,7 +72,7 @@ namespace Blog.DAL
                                      Desc = a.description,
                                      DataModyfikacji = a.data_modyfikacji,
                                      DataDodania = a.data_dodania,
-                                 }).Skip(ile*offset).Take(ile).ToList();
+                                 }).Skip(ile * offset).Take(ile).ToList();
                     return lista;
                 }
                 catch (Exception)
@@ -111,6 +112,34 @@ namespace Blog.DAL
                 catch (Exception)
                 {
                     throw new Exception("Wystąpił błąd podczas usuwania wpisu");
+                }
+            }
+        }
+        public List<Models.PostTagModel> pobierzZTagiem(string tag)
+        {
+            using (LinqTodbBlogDataContext db = new LinqTodbBlogDataContext())
+            {
+                try
+                {
+                    var lista = (from a in db.PostyTagis
+                                 where a.status != 0 && a.keywords.ToLower().Contains(tag.ToLower())
+                                 orderby a.data_dodania descending
+                                 select new Models.PostTagModel
+                                 {
+                                     Tytul = a.tytul,
+                                     Tresc = a.tresc,
+                                     Status = a.status,
+                                     Keywords = a.keywords,
+                                     Id = a.id,
+                                     Desc = a.description,
+                                     DataModyfikacji = a.data_modyfikacji,
+                                     DataDodania = a.data_dodania,
+                                 }).ToList();
+                    return lista;
+                }
+                catch (Exception)
+                {
+                    throw new Exception("Wystąpił błąd podczas pobierania wpisów");
                 }
             }
         }

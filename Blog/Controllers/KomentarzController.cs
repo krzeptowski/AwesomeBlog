@@ -75,27 +75,7 @@ namespace Blog.Controllers
         #endregion
 
         #region komentarz/delete
-        //TODO: komentarz/delete -get - jest w adminie
-        // GET: /Komentarz/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        //TODO: komentarz/delete post - jest w adminie
-        // POST: /Komentarz/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
+        // GET: usuwanie komentarzy jest zrobione w adminie Admin/DeleteComment
         #endregion 
     }
 }

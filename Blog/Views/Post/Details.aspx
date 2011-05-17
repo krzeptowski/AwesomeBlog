@@ -20,7 +20,7 @@
             <%--<div class="button_delete"><%: Html.ActionLink("&nbsp;", "Delete", "Admin", new { post.Id }, new { })%></div>--%>
         <% } %>
 
-        <h2><%: post.Tytul %></h2>
+        <h2><%: String.IsNullOrEmpty(post.Tytul)?"Brak tytułu":post.Tytul %></h2>
         <div class="time">
         Dodano: <%: post.DataModyfikacji.ToString() %>
             &nbsp|&nbsp Tagi: 

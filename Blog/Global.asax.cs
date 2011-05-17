@@ -29,6 +29,12 @@ namespace Blog
                 );
 
             routes.MapRoute(
+                "PokazPoTagu",
+                "Home/Tag/{tag}",
+                new { controller = "Home", action = "Tag", tag = UrlParameter.Optional }
+                );
+
+            routes.MapRoute(
                 "PokazPoTytule",
                 "Pokaz/{tytul}",
                 new { controller = "Post", action = "Pokaz", tytul = UrlParameter.Optional }

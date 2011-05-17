@@ -30,9 +30,8 @@ namespace Blog.Controllers
             _komentarze = new KomentarzDAL();
         }
 
-        //
+        #region post/details
         // GET: /Post/Details/5
-
         public ActionResult Details(int id/*, KomentarzModel model*/)
         {
             ViewData["Post"] = _posty.PobierzPost(id);
@@ -41,19 +40,17 @@ namespace Blog.Controllers
 
             return View();
         }
+        #endregion
 
-        //
+        #region post/create
         // GET: /Post/Create
-        
         [Authorize(Roles="Administracja")]
         public ActionResult Create()
         {
             return View();
         }
 
-        //
         // POST: /Post/Create
-
         [HttpPost]
         [Authorize(Roles = "Administracja")]
         public ActionResult Create(FormCollection collection)
@@ -75,7 +72,9 @@ namespace Blog.Controllers
                 return View();
             }
         }
-        
+        #endregion
+
+        #region post/edit
         // GET: /Post/Edit/5
         [Authorize(Roles = "Administracja")]
         public ActionResult Edit(int id)
@@ -96,9 +95,7 @@ namespace Blog.Controllers
             return View();
         }
 
-        //
         // POST: /Post/Edit/5
-        
         [HttpPost]
         [Authorize(Roles = "Administracja")]
         public ActionResult Edit(int id, FormCollection collection)
@@ -120,19 +117,17 @@ namespace Blog.Controllers
                 return View();
             }
         }
+        #endregion
 
-        //
+        #region post/delete
         // GET: /Post/Delete/5
-
         [Authorize(Roles = "Administracja")]
         public ActionResult Delete(int id)
         {
             return View();
         }
-
-        //
+        
         // POST: /Post/Delete/5
-
         [HttpPost]
         [Authorize(Roles = "Administracja")]
         public ActionResult Delete(int id, FormCollection collection)
@@ -146,7 +141,9 @@ namespace Blog.Controllers
                 return View();
             }
         }
+        #endregion
 
+        #region routes pokaz/tytul_{id}
         public ActionResult Pokaz(string tytul)
         {
             int id = _posty.WyciagnijIdPosta(tytul);
@@ -154,5 +151,7 @@ namespace Blog.Controllers
 
             //return View("Details",_posty.WyciagnijIdPosta(tytul));
         }
+        #endregion
+
     }
 }
