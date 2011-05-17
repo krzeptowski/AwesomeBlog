@@ -77,7 +77,26 @@
                     </div>
                 </div>
 
-                <div id="prawa_kolumna_do_zrobienia" style="float: right;">Prawa strona</div>
+                <div id="prawa_kolumna_do_zrobienia" style="float: right;">
+                <%-- using (Html.BeginForm())
+                   { --%>
+                    <form runat="server">
+                        <asp:Calendar ID="Kalendarz" runat="server" BackColor="#2B2B2B" 
+                            SelectionMode="None" ViewStateMode="Disabled"
+                            Font-Names="Verdana" Font-Size="9pt" BorderStyle="None" CellSpacing="5"
+                            ForeColor="Black" Height="190px" NextPrevFormat="FullMonth" Width="208px">
+                            <DayHeaderStyle Font-Bold="True" Font-Size="8pt" />
+                            <NextPrevStyle Font-Bold="False" Font-Size="8pt" ForeColor="#333333" 
+                                VerticalAlign="Bottom" />
+                            <OtherMonthDayStyle ForeColor="#999999" />
+                            <SelectedDayStyle BackColor="#333399" ForeColor="White" />
+                            <TitleStyle BackColor="#565553" BorderColor="#565553" BorderWidth="5px"
+                                Font-Bold="True" Font-Size="10pt" ForeColor="#86D3E7" />
+                            <TodayDayStyle BackColor="#CCCCCC" />
+                        </asp:Calendar>
+                    </form>
+                <%-- } --%>
+                </div>
 
                 <div style="clear:both;"></div>
 
