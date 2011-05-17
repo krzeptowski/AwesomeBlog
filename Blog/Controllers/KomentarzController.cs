@@ -51,7 +51,7 @@ namespace Blog.Controllers
         #endregion
 
         #region komentarz/edit
-        // TODO: komentarz/edit -get
+        // TODO: komentarz/edit -get,
         // GET: /Komentarz/Edit/5
         public ActionResult Edit(int id)
         {
@@ -75,14 +75,14 @@ namespace Blog.Controllers
         #endregion
 
         #region komentarz/delete
-        //TODO: komentarz/delete -get
+        //TODO: komentarz/delete -get - jest w adminie
         // GET: /Komentarz/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        //TODO: komentarz/delete post    
+        //TODO: komentarz/delete post - jest w adminie
         // POST: /Komentarz/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
