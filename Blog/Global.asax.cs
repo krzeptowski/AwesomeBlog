@@ -41,6 +41,12 @@ namespace Blog
                 );
 
             routes.MapRoute(
+                "PokazStrone",
+                "Page/{tytul}",
+                new { controller = "Page", action = "Show", tytul = UrlParameter.Optional }
+                );
+
+            routes.MapRoute(
                 "UsunKomentarz",
                 "Admin/DeleteComment/{id},{idPost}",
                 new { controller = "Admin", action = "DeleteComment", id = UrlParameter.Optional, idPost = UrlParameter.Optional }

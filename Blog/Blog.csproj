@@ -70,6 +70,7 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KomentarzController.cs" />
+    <Compile Include="Controllers\PageController.cs" />
     <Compile Include="Controllers\PostController.cs" />
     <Compile Include="DAL\KomentarzDAL.cs" />
     <Compile Include="DAL\LinqTodbBlog.designer.cs">
@@ -122,6 +123,7 @@
     <Content Include="Views\Home\PostsNavigation.ascx" />
     <Content Include="Views\Komentarz\Create.aspx" />
     <Content Include="Views\Komentarz\CreateKomentarz.ascx" />
+    <Content Include="Views\Page\Show.aspx" />
     <Content Include="Views\Post\Create.aspx" />
     <Content Include="Views\Post\Details.aspx" />
     <Content Include="Views\Post\Edit.aspx" />
