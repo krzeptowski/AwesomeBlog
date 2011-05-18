@@ -84,7 +84,7 @@
                         <asp:Calendar ID="Kalendarz" runat="server" BackColor="#2B2B2B" 
                             SelectionMode="None" ViewStateMode="Disabled"
                             Font-Names="Verdana" Font-Size="9pt" BorderStyle="None" CellSpacing="5"
-                            ForeColor="Black" Height="190px" NextPrevFormat="FullMonth" Width="208px">
+                            ForeColor="Black" Height="190px" Width="208px"  NextPrevFormat="FullMonth">
                             <DayHeaderStyle Font-Bold="True" Font-Size="8pt" />
                             <NextPrevStyle Font-Bold="False" Font-Size="8pt" ForeColor="#333333" 
                                 VerticalAlign="Bottom" />
