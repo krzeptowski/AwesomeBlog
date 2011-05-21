@@ -28,109 +28,48 @@ namespace Blog.Controllers
             _ustawienia = new UstawieniaServices();
         }
 
+        #region home/index
         public ActionResult Index(int? offset)
         {
-            ViewData["PostyTagi"] = _postTag.pobierzPorcje(Int16.Parse(_ustawienia.getSettings("ilosc_pozycji_na_strone")),(offset==null)?0:(int)offset);
+            ViewData["PostyTagi"] = _postTag.pobierzPorcje(Int16.Parse(_ustawienia.getSettings("ilosc_pozycji_na_strone")),(offset==null||offset==0)?0:(int)offset-1);
             ViewData["Komentarze"] = _komentarze.PobierzWszystkie();
+            //Lista(aktywna strona, liczba postow, elementów w porcji)
+            ViewData["Nawigacja"] = new List<int> { (offset == null || offset == 0) ? 1 : (int)offset, _postTag.ileWszystkichAktywnych(), Int16.Parse(_ustawienia.getSettings("ilosc_pozycji_na_strone")) };
             return View();
         }
 
-        //public ActionResult Indexx()
-        //{
-        //    ViewData["PostyTagi"] = _postTag.pobierzPorcje(Int16.Parse(_ustawienia.getSettings("ilosc_pozycji_na_strone")), 0);
-        //    ViewData["Komentarze"] = _komentarze.PobierzWszystkie();
-        //    return View();
-        //}
+            #region testowe
+            //public ActionResult Indexx(int? offset)
+            //{
+            //    ViewData["PostyTagi"] = _postTag.pobierzPorcje(Int16.Parse(_ustawienia.getSettings("ilosc_pozycji_na_strone")), (offset == null || offset == 0) ? 0 : (int)offset - 1);
+            //    ViewData["Komentarze"] = _komentarze.PobierzWszystkie();
+            //    //Lista(aktywna strona, liczba postow, elementów w porcji)
+            //    ViewData["Nawigacja"] = new List<int> { (offset == null || offset == 0) ? 1 : (int)offset, _postTag.ileWszystkichAktywnych(), Int16.Parse(_ustawienia.getSettings("ilosc_pozycji_na_strone")) };
+            //    return View();
+            //}
 
-        //GET: /Home/Index/6
-        //public ActionResult Indexx(int? offset)
-        //{
-        //    ViewData["PostyTagi"] = _postTag.pobierzPorcje(Int16.Parse(_ustawienia.getSettings("ilosc_pozycji_na_strone")),(offset==null)?0:(int)offset);
-        //    ViewData["Komentarze"] = _komentarze.PobierzWszystkie();
-        //    return View();
-        //}
+            //GET: /Home/Index/6
+            //public ActionResult Indexx(int? offset)
+            //{
+            //    ViewData["PostyTagi"] = _postTag.pobierzPorcje(Int16.Parse(_ustawienia.getSettings("ilosc_pozycji_na_strone")),(offset==null)?0:(int)offset);
+            //    ViewData["Komentarze"] = _komentarze.PobierzWszystkie();
+            //    return View();
+            //}
+            #endregion
 
+        #endregion
 
-        // GET: /Post/Details/5
-
-        public ActionResult Details(int id)
+        #region Tag
+        public ActionResult Tag(string tag)
         {
-            return View();
-        }
-
-
-        // GET: /Post/Create
-
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-
-        // POST: /Post/Create
-
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
-        {
-            try
-            {
-
+            if (String.IsNullOrEmpty(tag))
                 return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+
+            ViewData["PostyTagi"] = _postTag.pobierzZTagiem(tag);
+            ViewData["Komentarze"] = _komentarze.PobierzWszystkie();
+            ViewData["Nawigacja"] = new List<int> { 1, 1, 1 }; //dzięki temu nie będzie nawigacji
+            return View("Index");
         }
-        
-
-        // GET: /Post/Edit/5
- 
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
- 
-        // POST: /Post/Edit/5
-
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
- 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-
-        // GET: /Post/Delete/5
- 
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-
-        // POST: /Post/Delete/5
-
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
- 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
+        #endregion
     }
 }

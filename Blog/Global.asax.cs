@@ -29,11 +29,22 @@ namespace Blog
                 );
 
             routes.MapRoute(
-                "UsunKomentarz",
-                "Admin/DeleteComment/{idPosta}/{id}",
-                new { controller = "Admin", action = "DeleteComment", idPosta = UrlParameter.Optional, id = UrlParameter.Optional }
-            );
+                "PokazPoTagu",
+                "Home/Tag/{tag}",
+                new { controller = "Home", action = "Tag", tag = UrlParameter.Optional }
+                );
 
+            routes.MapRoute(
+                "PokazPoTytule",
+                "Pokaz/{tytul}",
+                new { controller = "Post", action = "Pokaz", tytul = UrlParameter.Optional }
+                );
+
+            routes.MapRoute(
+                "UsunKomentarz",
+                "Admin/DeleteComment/{id},{idPost}",
+                new { controller = "Admin", action = "DeleteComment", id = UrlParameter.Optional, idPost = UrlParameter.Optional }
+                );
 
             routes.MapRoute(
                 "Default", // Route name

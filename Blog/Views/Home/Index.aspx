@@ -39,7 +39,9 @@
             List<string> tags = (post.Keywords.Split(", \\".ToCharArray())).Take(4).ToList();
             foreach (String tag in tags)
             { %>
-                <a href="" title="Zobacz wszystkie wpisy oznaczone jako: <%: tag %>"><%: tag.ToLower()%></a><%--: (tags.IndexOf(tag) < tags.Count - 1)?",":""--%>
+                <%: Html.ActionLink(tag,"Tag",new{tag=tag},new{title="Zobacz wszystkie wpisy oznaczone jako: "+tag}) %>
+                <%--<a href="" title="Zobacz wszystkie wpisy oznaczone jako: <%: tag %>"><%: tag.ToLower()%></a>--%>
+                <%--: (tags.IndexOf(tag) < tags.Count - 1)?",":""--%>
             <% }
         }
         catch(NullReferenceException)
@@ -75,5 +77,8 @@
        {%>
             <span class="allert">Brak kolekcji wpisów</span>
     <% } %>
+    <div id="posts_navigation">
+        <% Html.RenderPartial("PostsNavigation"); %>
+    </div>
 
 </asp:Content>

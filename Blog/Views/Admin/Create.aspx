@@ -12,6 +12,7 @@
         <p>
             Wprowadź dane nowego wpisu, a następnie zatwierdź formularz.
         </p>
+        <div class="clear20"></div>
         <% using (Html.BeginForm()) {%>
             <span class="error">
                 <%: Html.ValidationSummary(true, "Dodawanie nowego wpisu nie powiodło się. Sprawdź listę błędów i spróbuj ponownie.") %>

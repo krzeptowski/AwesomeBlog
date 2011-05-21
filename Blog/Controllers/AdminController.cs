@@ -4,27 +4,37 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+using Blog.Models;
+
 namespace Blog.Controllers
 {
     public class AdminController : Controller
     {
         DAL.IPostTag _PostTag;
-        DAL.IKomentarz _Komentarz;
+        DAL.IPost _posty;
+        DAL.ITag _tagi;
+        DAL.IKomentarz _komentarze;
+
 
         public AdminController()
         {
             _PostTag = new DAL.PostTagDAL();
-            _Komentarz = new DAL.KomentarzDAL();
+            _posty = new DAL.PostDAL();
+            _tagi = new DAL.TagDAL();
+            _komentarze = new DAL.KomentarzDAL();
         }
 
-        //TODO
+        #region admin/index
+        //TODO: admin/index-get
         // GET: /Admin/
         [Authorize(Roles = "Administracja")]
         public ActionResult Index()
         {
             return View();
         }
+        #endregion
 
+        #region admin/create
         // GET: /Admin/Create
         [Authorize(Roles = "Administracja")]
         public ActionResult Create()
@@ -63,33 +73,54 @@ namespace Blog.Controllers
                 return View(model);
             }
         }
+        #endregion
 
-        //TODO
+        #region admin/edit
         // GET: /Admin/Edit/5
         [Authorize(Roles = "Administracja")]
         public ActionResult Edit(int id)
         {
+            PostModel post = _posty.PobierzPost(id);
+            TagModel tagi = _tagi.PobierzTagPosta(post.Id);
+
+            if (post == null)
+                return RedirectToAction("Index", "Home");//no such post
+            else
+            {
+                if (tagi == null)
+                    tagi = new TagModel { IdPosta = id, Desc = "", Keywords = "" };
+                ViewData["post"] = post;
+                ViewData["tagi"] = tagi;
+            }
+
             return View();
         }
 
-        //TODO
         // POST: /Admin/Edit/5
-
         [HttpPost]
         [Authorize(Roles = "Administracja")]
         public ActionResult Edit(int id, FormCollection collection)
         {
             try
             {
-                return RedirectToAction("Index");
+                string tytul = collection["Tytul"];
+                string tresc = collection["Tresc"];
+                int status = Int32.Parse(collection["Status"]);
+                string tagi = collection["Tagi"];
+                string opis = collection["Opis"];
+
+                _posty.EdytujPost(id, tytul, tresc, status, tagi, opis);
+
+                return RedirectToAction("Index", "Home");
             }
             catch
             {
                 return View();
             }
         }
+        #endregion
 
-        //TODO
+        #region admin/delete
         // GET: /Admin/Delete/5
         [Authorize(Roles = "Administracja")]
         public ActionResult Delete(int id)
@@ -104,30 +135,23 @@ namespace Blog.Controllers
                 return RedirectToAction("Index");
             }
         }
-        //TODO
-        // POST: /Admin/Delete/5
+        #endregion
 
-
+        #region admin/deletecoment
+        // GET: /Komentarz/Delete/5
         [Authorize(Roles = "Administracja")]
-        public ActionResult DeleteComment(int idPosta, int id)
+        public ActionResult DeleteComment(int id, int idPost)
         {
             try
             {
-                if (_Komentarz.UsunKomentarz(id))
-                {
-                    return RedirectToAction("Details", "Post", new { id = idPosta });
-                }
-                else
-                {
-                    ViewData["error"] = "Nie ma komentarza o takim ID";
-                    //TODO: Zrobic strone z bledami
-                    return RedirectToAction("Details", "Post", new { id = idPosta });
-                }
+                _komentarze.UsunKomentarz(id);
+                return RedirectToAction("Details", "Post", new { id = idPost });
             }
             catch
             {
-                return View();
+                return RedirectToAction("Details","Post",new{id=idPost});
             }
         }
+        #endregion
     }
 }

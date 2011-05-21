@@ -15,11 +15,17 @@ namespace Blog.DAL
         int DodajPost(string tytul, string tresc, int status, string tagi, string opis);
         void EdytujPost(int id, string tytul, string tresc, int status);
         void EdytujPost(int id, string tytul, string tresc, int status, string tagi, string opis);
+        int WyciagnijIdPosta(string tytul);
     }
 
     public class PostDAL : IPost
     {
         #region IPost Members
+
+        public void DodajPost(PostModel post)
+        {
+            throw new NotImplementedException();
+        }
 
         public int DodajPost(string tytul, string tresc, int status)
         {
@@ -40,7 +46,6 @@ namespace Blog.DAL
                 return p.id;
             }
         }
-
         public PostModel PobierzPost(int id)
         {
             using (LinqTodbBlogDataContext context = new LinqTodbBlogDataContext())
@@ -57,7 +62,6 @@ namespace Blog.DAL
                            };
             }
         }
-
         public List<PostModel> PobierzWszystkie()
         {
             using (LinqTodbBlogDataContext context = new LinqTodbBlogDataContext())
@@ -77,7 +81,7 @@ namespace Blog.DAL
             }
         }
 
-        public int DodajPost(string tytul, string tresc, int status, string tagi, string opis)
+        public void DodajPost(string tytul, string tresc, int status, string tagi, string opis)
         {
             using (LinqTodbBlogDataContext context = new LinqTodbBlogDataContext())
             {
@@ -102,10 +106,8 @@ namespace Blog.DAL
                 context.Tagis.InsertOnSubmit(t);
                 context.SubmitChanges();
 
-                return p.id;
             }
         }
-
         public void EdytujPost(int id, string tytul, string tresc, int status)
         {
             using (LinqTodbBlogDataContext context = new LinqTodbBlogDataContext())
@@ -119,7 +121,6 @@ namespace Blog.DAL
                 context.SubmitChanges();
             }
         }
-
         public void EdytujPost(int id, string tytul, string tresc, int status, string tagi, string opis)
         {
             using (LinqTodbBlogDataContext context = new LinqTodbBlogDataContext())
@@ -137,6 +138,16 @@ namespace Blog.DAL
 
                 context.SubmitChanges();
             }
+        }
+
+        public int WyciagnijIdPosta(string tytul) // "frenjf_fdejif_fer_73"
+        {
+            string idS = tytul.Substring(tytul.LastIndexOf("_")+1);
+            int id;
+            if(!Int32.TryParse(idS,out id))
+                throw new Exception("Podany adres zawiera nieprawidłową wartość");
+            
+            return id;
         }
 
         #endregion
