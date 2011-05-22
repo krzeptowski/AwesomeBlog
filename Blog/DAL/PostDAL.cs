@@ -81,7 +81,7 @@ namespace Blog.DAL
             }
         }
 
-        public void DodajPost(string tytul, string tresc, int status, string tagi, string opis)
+        public int DodajPost(string tytul, string tresc, int status, string tagi, string opis)
         {
             using (LinqTodbBlogDataContext context = new LinqTodbBlogDataContext())
             {
@@ -106,6 +106,7 @@ namespace Blog.DAL
                 context.Tagis.InsertOnSubmit(t);
                 context.SubmitChanges();
 
+                return p.id;
             }
         }
         public void EdytujPost(int id, string tytul, string tresc, int status)

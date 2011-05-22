@@ -47,11 +47,16 @@ namespace Blog
                 );
 
             routes.MapRoute(
+                "PokazPoDacie",
+                "Home/Archive/{entryDate}/{offset}",
+                new { controller = "Home", action = "Archive", offset = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
                 "Default", // Route name
                 "{controller}/{action}/{id}", // URL with parameters
                 new { controller = "Home", action = "Index", id = UrlParameter.Optional } // Parameter defaults
             );
-
         }
 
         protected void Application_Start()
