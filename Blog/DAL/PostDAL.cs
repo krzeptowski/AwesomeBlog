@@ -46,6 +46,7 @@ namespace Blog.DAL
                 return p.id;
             }
         }
+
         public PostModel PobierzPost(int id)
         {
             using (LinqTodbBlogDataContext context = new LinqTodbBlogDataContext())

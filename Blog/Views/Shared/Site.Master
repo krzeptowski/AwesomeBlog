@@ -1,4 +1,10 @@
 ﻿<%@ Master Language="C#" Inherits="System.Web.Mvc.ViewMasterPage" %>
+<script language="C#" runat="server">
+    private void Kalendarz_SelectionChanged(object sender, EventArgs e)
+    {
+        Response.Write("dsadsada");
+    }
+</script>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -82,9 +88,8 @@
                    { --%>
                     <form runat="server">
                         <asp:Calendar ID="Kalendarz" runat="server" BackColor="#2B2B2B" 
-                            SelectionMode="None" ViewStateMode="Disabled"
                             Font-Names="Verdana" Font-Size="9pt" BorderStyle="None" CellSpacing="5"
-                            ForeColor="Black" Height="190px" NextPrevFormat="FullMonth" Width="208px">
+                            ForeColor="Black" Height="190px" NextPrevFormat="FullMonth" Width="208px" OnSelectionChanged="Kalendarz_SelectionChanged">
                             <DayHeaderStyle Font-Bold="True" Font-Size="8pt" />
                             <NextPrevStyle Font-Bold="False" Font-Size="8pt" ForeColor="#333333" 
                                 VerticalAlign="Bottom" />
@@ -93,6 +98,7 @@
                             <TitleStyle BackColor="#565553" BorderColor="#565553" BorderWidth="5px"
                                 Font-Bold="True" Font-Size="10pt" ForeColor="#86D3E7" />
                             <TodayDayStyle BackColor="#CCCCCC" />
+
                         </asp:Calendar>
                     </form>
                 <%-- } --%>

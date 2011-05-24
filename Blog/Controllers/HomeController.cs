@@ -38,16 +38,6 @@ namespace Blog.Controllers
             return View();
         }
 
-        public ActionResult Archive(DateTime entryDate, int? offset)
-        {
-            ViewData["PostyTagi"] = _postTag.pobierzPorcjePoDacie(entryDate, Int16.Parse(_ustawienia.getSettings("ilosc_pozycji_na_strone")), (offset == null || offset == 0) ? 0 : (int)offset - 1);
-            ViewData["Komentarze"] = _komentarze.PobierzWszystkie();
-            ////Lista(aktywna strona, liczba postow, elementów w porcji)
-            ViewData["Nawigacja"] = new List<int> { (offset == null || offset == 0) ? 1 : (int)offset, _postTag.ileWszystkichAktywnych(), Int16.Parse(_ustawienia.getSettings("ilosc_pozycji_na_strone")) };
-
-            return View();
-        }
-
             #region testowe
             //public ActionResult Indexx(int? offset)
             //{
@@ -67,6 +57,18 @@ namespace Blog.Controllers
             //}
             #endregion
 
+        #endregion
+
+        #region home/archive
+        public ActionResult Archive(DateTime entryDate, int? offset)
+        {
+            ViewData["PostyTagi"] = _postTag.pobierzPorcjePoDacie(entryDate, Int16.Parse(_ustawienia.getSettings("ilosc_pozycji_na_strone")), (offset == null || offset == 0) ? 0 : (int)offset - 1);
+            ViewData["Komentarze"] = _komentarze.PobierzWszystkie();
+            ////Lista(aktywna strona, liczba postow, elementów w porcji)
+            ViewData["Nawigacja"] = new List<int> { (offset == null || offset == 0) ? 1 : (int)offset, _postTag.ileWszystkichAktywnych(), Int16.Parse(_ustawienia.getSettings("ilosc_pozycji_na_strone")) };
+
+            return View("Index");
+        } 
         #endregion
 
         #region Tag
