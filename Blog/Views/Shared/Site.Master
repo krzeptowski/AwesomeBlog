@@ -1,10 +1,4 @@
 ﻿<%@ Master Language="C#" Inherits="System.Web.Mvc.ViewMasterPage" %>
-<script language="C#" runat="server">
-    private void Kalendarz_SelectionChanged(object sender, EventArgs e)
-    {
-        Response.Write("dsadsada");
-    }
-</script>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -15,9 +9,23 @@
     <script src="<%= Url.Content("~/Scripts/MicrosoftMvcAjax.debug.js") %>" type="text/javascript"></script>
     <script src="<%= Url.Content("~/Scripts/MicrosoftMvcValidation.debug.js") %>" type="text/javascript"></script>
     <script src="<%= Url.Content("~/Scripts/CustomValidation.debug.js") %>" type="text/javascript"></script>
-</head>
 
+    <script src="<%= Url.Content("~/Scripts/jquery-1.6.1.min.js") %>" type="text/javascript"></script>
+    <script src="<%= Url.Content("~/Scripts/jquery-ui-1.8.13.custom.min.js") %>" type="text/javascript"></script>
+
+</head>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#o_nas_link").click(function () {
+                $("#authors").dialog();
+            });
+        });
+    </script>
 <body>
+    <div id="authors" style="background-color:Olive; display:none">
+        Andrzej 'd3dek' Krzeptowski
+        Krzysztof 'sonic' Nowak
+    </div>
   <div id="whole">
     <div id="top">
         <div id="user">
@@ -84,24 +92,8 @@
                 </div>
 
                 <div id="prawa_kolumna_do_zrobienia" style="float: right;">
-                <%-- using (Html.BeginForm())
-                   { --%>
-                    <form runat="server">
-                        <asp:Calendar ID="Kalendarz" runat="server" BackColor="#2B2B2B" 
-                            Font-Names="Verdana" Font-Size="9pt" BorderStyle="None" CellSpacing="5"
-                            ForeColor="Black" Height="190px" NextPrevFormat="FullMonth" Width="208px" OnSelectionChanged="Kalendarz_SelectionChanged">
-                            <DayHeaderStyle Font-Bold="True" Font-Size="8pt" />
-                            <NextPrevStyle Font-Bold="False" Font-Size="8pt" ForeColor="#333333" 
-                                VerticalAlign="Bottom" />
-                            <OtherMonthDayStyle ForeColor="#999999" />
-                            <SelectedDayStyle BackColor="#333399" ForeColor="White" />
-                            <TitleStyle BackColor="#565553" BorderColor="#565553" BorderWidth="5px"
-                                Font-Bold="True" Font-Size="10pt" ForeColor="#86D3E7" />
-                            <TodayDayStyle BackColor="#CCCCCC" />
-
-                        </asp:Calendar>
-                    </form>
-                <%-- } --%>
+                    <div id="calendar">
+                    </div>
                 </div>
 
                 <div style="clear:both;"></div>

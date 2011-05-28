@@ -115,6 +115,10 @@
     <Content Include="Content\img\post_time.png" />
     <Content Include="Content\img\top.jpg" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\jquery-1.5.1.min.js" />
+    <Content Include="Scripts\jquery-1.6.1.js" />
+    <Content Include="Scripts\jquery-1.6.1.min.js" />
+    <Content Include="Scripts\jquery-ui-1.8.13.custom.min.js" />
     <Content Include="Views\Admin\Create.aspx" />
     <Content Include="Views\Admin\CreateNewPost.ascx" />
     <Content Include="Views\Admin\Edit.aspx" />
