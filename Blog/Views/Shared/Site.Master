@@ -13,18 +13,28 @@
     <script src="<%= Url.Content("~/Scripts/jquery-1.6.1.min.js") %>" type="text/javascript"></script>
     <script src="<%= Url.Content("~/Scripts/jquery-ui-1.8.13.custom.min.js") %>" type="text/javascript"></script>
 
-</head>
     <script type="text/javascript">
         $(document).ready(function () {
             $("#o_nas_link").click(function () {
                 $("#authors").dialog();
             });
         });
+
+        $(function () {
+            $("#calendar").datepicker({
+                dateFormat: 'mm-dd-yy',
+                onSelect: function (dateText, inst) {
+                    window.location = 'http://localhost:3302/Home/Archive/' + dateText;
+                }
+            });
+        });
     </script>
+</head>
+
 <body>
-    <div id="authors" style="background-color:Olive; display:none">
-        Andrzej 'd3dek' Krzeptowski
-        Krzysztof 'sonic' Nowak
+    <div id="authors" style="background-color:Olive; display:none; color:Black;">
+        <p>Andrzej 'd3dek' Krzeptowski</p>
+        <p>Krzysztof 'sonic' Nowak</p>
     </div>
   <div id="whole">
     <div id="top">
