@@ -50,4 +50,11 @@
       <Column Name="description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.Archiwum" Member="Archiwums">
+    <Type Name="Archiwum">
+      <Column Name="ilosc" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="miesiac" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="rok" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
 </Database>

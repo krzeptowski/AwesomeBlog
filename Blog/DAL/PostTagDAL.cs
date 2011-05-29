@@ -9,6 +9,7 @@ namespace Blog.DAL
     {
         int dodajPost(Models.PostTagModel model);
         List<Models.PostTagModel> pobierzPorcje(int ile, int offset);
+        List<Models.PostTagModel> pobierzArchiwum(int year, int month);
         bool usunPost(int id);
         int ileWszystkichAktywnych();
         List<Models.PostTagModel> pobierzZTagiem(string tag);
@@ -73,6 +74,34 @@ namespace Blog.DAL
                                      DataModyfikacji = a.data_modyfikacji,
                                      DataDodania = a.data_dodania,
                                  }).Skip(ile * offset).Take(ile).ToList();
+                    return lista;
+                }
+                catch (Exception)
+                {
+                    throw new Exception("Wystąpił błąd podczas pobierania wpisów");
+                }
+            }
+        }
+        public List<Models.PostTagModel> pobierzArchiwum(int year, int month)
+        {
+            using (LinqTodbBlogDataContext db = new LinqTodbBlogDataContext())
+            {
+                try
+                {
+                    var lista = (from a in db.PostyTagis
+                                 where a.status != 0 && a.data_dodania.Year==year && a.data_dodania.Month==month
+                                 orderby a.data_dodania descending
+                                 select new Models.PostTagModel
+                                 {
+                                     Tytul = a.tytul,
+                                     Tresc = a.tresc,
+                                     Status = a.status,
+                                     Keywords = a.keywords,
+                                     Id = a.id,
+                                     Desc = a.description,
+                                     DataModyfikacji = a.data_modyfikacji,
+                                     DataDodania = a.data_dodania,
+                                 }).ToList();
                     return lista;
                 }
                 catch (Exception)

@@ -29,6 +29,12 @@ namespace Blog
                 );
 
             routes.MapRoute(
+                "Archiwum",
+                "Home/Index/{year}/{month}",
+                new {controller="Home", action = "Archive", year = UrlParameter.Optional, month=UrlParameter.Optional}
+                );
+
+            routes.MapRoute(
                 "PokazPoTagu",
                 "Home/Tag/{tag}",
                 new { controller = "Home", action = "Tag", tag = UrlParameter.Optional }
