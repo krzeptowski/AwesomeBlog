@@ -24,7 +24,7 @@
             $("#calendar").datepicker({
                 dateFormat: 'mm-dd-yy',
                 onSelect: function (dateText, inst) {
-                    window.location = 'http://localhost:3302/Home/Archive/' + dateText;
+                    window.location = 'http://' + window.location.host + '/Home/Archive/' + dateText;
                 }
             });
         });
