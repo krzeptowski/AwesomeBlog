@@ -216,7 +216,14 @@ a:hover
 {float:left; padding-left:10px;}
 #posts_navigation .right
 {float:right; padding-right:10px;}
+/**-----------------------------------------------------------------------*/
+#right
+{
+    float:right;
+    width:209px;
+}
 
+/*-----------------------------------------------------------------------*/
 #footer_top
 {
 	background:url(img/footer_top.gif) no-repeat top left;

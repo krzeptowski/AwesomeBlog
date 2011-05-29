@@ -26,14 +26,14 @@
         <elementListCompartment Id="29eb9e3a-df01-4fee-9b54-7f24a30dfa43" absoluteBounds="3.515, 1.46, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(2.75 : 3.87424967447917); (3.5 : 3.87424967447917)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 3.87424967447917); (3.5 : 3.87424967447917)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/LinqTodbBlogDataContext/Posty/Posty_Komentarze" />
       <nodes>
         <classShapeMoniker Id="fc2fc436-0379-4b71-8b12-066b4f47954f" />
         <classShapeMoniker Id="84fd7b1d-a92b-49e9-8b5f-97bda3a2a2f7" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(1.53125 : 2.125); (1.53125 : 1.09375); (3.5 : 1.09375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(0.75 : 3.10659912109375); (0.375 : 3.10659912109375); (0.375 : 0.5); (4.6562495 : 0.5); (4.6562495 : 1)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/LinqTodbBlogDataContext/Posty/Posty_Tagi" />
       <nodes>
         <classShapeMoniker Id="fc2fc436-0379-4b71-8b12-066b4f47954f" />
@@ -44,6 +44,12 @@
       <DataClassMoniker Name="/LinqTodbBlogDataContext/PostyTagi" />
       <nestedChildShapes>
         <elementListCompartment Id="f5631fc5-e568-4ad0-b053-9ec8781ea771" absoluteBounds="2.39, 1.71, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a3992f4c-49c5-4142-b551-622c350634cd" absoluteBounds="1.75, 0.75, 2, 1.3862939453125">
+      <DataClassMoniker Name="/LinqTodbBlogDataContext/Archiwum" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9445ef41-64ac-44e3-9a85-adec88ff0839" absoluteBounds="1.7650000000000001, 1.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>
