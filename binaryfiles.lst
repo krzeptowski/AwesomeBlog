@@ -3,6 +3,7 @@
 # ze jakis plik lub sciezka powinna sie tutaj znalezc.
 
 Blog\App_Data\
+Blog\Scripts\
 Blog\DAL\LinqTodbBlog.dbml
 Blog\DAL\LinqTodbBlog.dbml.layout
 Blog\DAL\LinqTodbBlog.designer.cs

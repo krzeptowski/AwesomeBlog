@@ -1,2 +1,3 @@
 Blog/App_Data/* merge=theirs
 LinqTodbBlog.dbml -diff
+Blog/Scripts/* -diff
