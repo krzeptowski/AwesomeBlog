@@ -55,6 +55,7 @@ namespace Blog.DAL
                 }
             }
         }
+
         public List<Models.PostTagModel> pobierzPorcje(int ile, int offset)
         {
             using (LinqTodbBlogDataContext db = new LinqTodbBlogDataContext())
