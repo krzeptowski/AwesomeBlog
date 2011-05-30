@@ -101,12 +101,10 @@
                     </div>
                 </div>
 
-<<<<<<< HEAD
-                <div id="prawa_kolumna_do_zrobienia" style="float: right;">
-                    <div id="calendar">
-                    </div>
-=======
                 <div id="right" style="float: right;">
+                    
+                    <div id="calendar"></div>
+
                     <% try
                        { %>
                         <% if (ViewData["Archiwum"] != null)
@@ -143,7 +141,7 @@
                             <TodayDayStyle BackColor="#CCCCCC" />
                         </asp:Calendar>
                     </form>
->>>>>>> admintool
+
                 </div>
 
                 <div style="clear:both;"></div>
