@@ -18,7 +18,7 @@ namespace Blog.DAL
             {
                 try
                 {
-                    var archive = from a in db.Archiwums 
+                    var archive = from a in db.Archiwums
                                   select new Models.ArchiveModel
                                   {
                                       count=(a.ilosc==null)?0:(int)a.ilosc,
