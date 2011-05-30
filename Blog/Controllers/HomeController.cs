@@ -17,6 +17,7 @@ namespace Blog.Controllers
 
         IPostTag _postTag;
         IUstawienia _ustawienia;
+        IArchive _archiwum;
 
         public HomeController()
         {
@@ -26,6 +27,14 @@ namespace Blog.Controllers
 
             _postTag = new PostTagDAL();
             _ustawienia = new UstawieniaServices();
+            _archiwum = new ArchiveDAL();
+
+            utworzArchiwum();
+        }
+
+        private void utworzArchiwum()
+        {
+            ViewData["Archiwum"] = _archiwum.GetArchive();
         }
 
         #region home/index
@@ -38,6 +47,13 @@ namespace Blog.Controllers
             return View();
         }
 
+        public ActionResult Archive(int year, int month)
+        {
+            ViewData["PostyTagi"] = _postTag.pobierzArchiwum(year, month);
+            ViewData["Komentarze"] = _komentarze.PobierzWszystkie();
+            ViewData["Nawigacja"] = new List<int> { 1, 1, 1 }; //dzięki temu nie będzie nawigacji
+            return View("Index");
+        }
             #region testowe
             //public ActionResult Indexx(int? offset)
             //{
@@ -60,7 +76,7 @@ namespace Blog.Controllers
         #endregion
 
         #region home/archive
-        public ActionResult Archive(DateTime entryDate, int? offset)
+        public ActionResult ArchiveDedka(DateTime entryDate, int? offset)
         {
             ViewData["PostyTagi"] = _postTag.pobierzPorcjePoDacie(entryDate, Int16.Parse(_ustawienia.getSettings("ilosc_pozycji_na_strone")), (offset == null || offset == 0) ? 0 : (int)offset - 1);
             ViewData["Komentarze"] = _komentarze.PobierzWszystkie();

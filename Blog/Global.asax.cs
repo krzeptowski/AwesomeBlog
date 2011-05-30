@@ -29,6 +29,12 @@ namespace Blog
                 );
 
             routes.MapRoute(
+                "Archiwum",
+                "Home/Index/{year}/{month}",
+                new {controller="Home", action = "Archive", year = UrlParameter.Optional, month=UrlParameter.Optional}
+                );
+
+            routes.MapRoute(
                 "PokazPoTagu",
                 "Home/Tag/{tag}",
                 new { controller = "Home", action = "Tag", tag = UrlParameter.Optional }
@@ -38,6 +44,12 @@ namespace Blog
                 "PokazPoTytule",
                 "Pokaz/{tytul}",
                 new { controller = "Post", action = "Pokaz", tytul = UrlParameter.Optional }
+                );
+
+            routes.MapRoute(
+                "PokazStrone",
+                "Page/{tytul}",
+                new { controller = "Page", action = "Show", tytul = UrlParameter.Optional }
                 );
 
             routes.MapRoute(

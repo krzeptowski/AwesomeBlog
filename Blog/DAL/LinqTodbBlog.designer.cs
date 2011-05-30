@@ -113,6 +113,14 @@ namespace Blog.DAL
 				return this.GetTable<PostyTagi>();
 			}
 		}
+		
+		public System.Data.Linq.Table<Archiwum> Archiwums
+		{
+			get
+			{
+				return this.GetTable<Archiwum>();
+			}
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Ustawienia")]
@@ -989,6 +997,69 @@ namespace Blog.DAL
 				if ((this._description != value))
 				{
 					this._description = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Archiwum")]
+	public partial class Archiwum
+	{
+		
+		private System.Nullable<int> _ilosc;
+		
+		private System.Nullable<int> _miesiac;
+		
+		private System.Nullable<int> _rok;
+		
+		public Archiwum()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ilosc", DbType="Int")]
+		public System.Nullable<int> ilosc
+		{
+			get
+			{
+				return this._ilosc;
+			}
+			set
+			{
+				if ((this._ilosc != value))
+				{
+					this._ilosc = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_miesiac", DbType="Int")]
+		public System.Nullable<int> miesiac
+		{
+			get
+			{
+				return this._miesiac;
+			}
+			set
+			{
+				if ((this._miesiac != value))
+				{
+					this._miesiac = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_rok", DbType="Int")]
+		public System.Nullable<int> rok
+		{
+			get
+			{
+				return this._rok;
+			}
+			set
+			{
+				if ((this._rok != value))
+				{
+					this._rok = value;
 				}
 			}
 		}
