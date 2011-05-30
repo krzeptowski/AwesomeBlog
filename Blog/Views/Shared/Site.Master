@@ -136,7 +136,7 @@
   </div>
   <script type="text/javascript">
       jQuery("#accordion").accordion();
-      jQuery("#accordion").accordion({ active: 2 });
+      jQuery("#accordion").accordion({ active: 0 });
       jQuery(document).ready(function () {
           $('.accordion .head').click(function () {
               $(this).next().toggle('slow');
