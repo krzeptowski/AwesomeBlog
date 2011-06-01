@@ -60,8 +60,8 @@ namespace Blog
 
             routes.MapRoute(
                 "PokazPoDacie",
-                "Home/Archive/{entryDate}/{offset}",
-                new { controller = "Home", action = "Archive", offset = UrlParameter.Optional }
+                "Home/ArchiveByDay/{entryDate}/{offset}",
+                new { controller = "Home", action = "ArchiveByDay", offset = UrlParameter.Optional }
             );
 
             routes.MapRoute(
