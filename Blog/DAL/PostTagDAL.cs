@@ -9,7 +9,7 @@ namespace Blog.DAL
     {
         int dodajPost(Models.PostTagModel model);
         List<Models.PostTagModel> pobierzPorcje(int ile, int offset);
-        List<Models.PostTagModel> pobierzPorcjePoDacie(DateTime data, int ile, int offset);
+        List<Models.PostTagModel> pobierzPorcjePoDacie(DateTime data);
         List<Models.PostTagModel> pobierzArchiwum(int year, int month);
         bool usunPost(int id);
         int ileWszystkichAktywnych();
@@ -19,14 +19,14 @@ namespace Blog.DAL
     public class PostTagDAL : IPostTag
     {
 
-        public List<Models.PostTagModel> pobierzPorcjePoDacie(DateTime data, int ile, int offset)
+        public List<Models.PostTagModel> pobierzPorcjePoDacie(DateTime data)
         {
             using (LinqTodbBlogDataContext db = new LinqTodbBlogDataContext())
             {
                 try
                 {
                     var lista = (from a in db.PostyTagis
-                                 where a.status != 0 && a.data_dodania.Date == data.Date
+                                 where a.status != 0 && (a.data_dodania.Date == data.Date || (a.data_modyfikacji!=null)? (((DateTime)a.data_modyfikacji).Date == data.Date):false)
                                  orderby a.data_dodania descending
                                  select new Models.PostTagModel
                                  {
@@ -38,7 +38,7 @@ namespace Blog.DAL
                                      Desc = a.description,
                                      DataModyfikacji = a.data_modyfikacji,
                                      DataDodania = a.data_dodania,
-                                 }).Skip(ile * offset).Take(ile).ToList();
+                                 }).ToList();
                     return lista;
                 }
                 catch (Exception)

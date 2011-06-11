@@ -23,7 +23,7 @@
             $("#calendar").datepicker({
                 dateFormat: 'mm-dd-yy',
                 onSelect: function (dateText, inst) {
-                    window.location = 'http://' + window.location.host + '/Home/Archive/' + dateText;
+                    window.location = 'http://' + window.location.host + '/Home/ArchiveByDay/' + dateText;
                 }
             });
         });
@@ -103,7 +103,10 @@
 
                 <div id="right" style="float: right;">
                     
-                    <div id="calendar"></div>
+                    <div id="calendar_container" class="widget">
+                        <h1>Kalendarz</h1>
+                        <div id="calendar"></div>
+                    </div>
 
                     <% try
                        { %>
@@ -118,7 +121,7 @@
                     <% } %>
 
 
-                    <div id="accordion">
+                    <div id="accordion" class="widget">
                         <h3><a href="#">First header</a></h3>
                         <div>First content First content First content First content First content First content First content </div>
                         <h3><a href="#">Second header</a></h3>
@@ -126,6 +129,7 @@
                         <h3><a href="#">Third header</a></h3>
                         <div>Third content Third content Third content Third content Third content Third content Third content Third content </div>
                     </div>
+                    <!-- STARY KALENDARZ
                     <form id="Form1" runat="server">
                         <asp:Calendar ID="Kalendarz" runat="server" BackColor="#2B2B2B" 
                             SelectionMode="None" ViewStateMode="Disabled"
@@ -140,7 +144,8 @@
                                 Font-Bold="True" Font-Size="10pt" ForeColor="#86D3E7" />
                             <TodayDayStyle BackColor="#CCCCCC" />
                         </asp:Calendar>
-                    </form>
+                    </form> 
+                    -->
 
                 </div>
 

@@ -223,6 +223,16 @@ a:hover
     width:209px;
 }
 
+#right .widget
+{
+    margin-bottom:30px;
+}
+
+#calendar .ui-datepicker-next, #calendar .ui-datepicker-prev
+{cursor:pointer;}
+#calendar .ui-datepicker-next
+{margin-left:10px;}
+
 /*-----------------------------------------------------------------------*/
 #footer_top
 {

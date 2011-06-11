@@ -76,12 +76,12 @@ namespace Blog.Controllers
         #endregion
 
         #region home/archive
-        public ActionResult ArchiveByDay(DateTime entryDate, int? offset)
+        public ActionResult ArchiveByDay(DateTime entryDate)
         {
-            ViewData["PostyTagi"] = _postTag.pobierzPorcjePoDacie(entryDate, Int16.Parse(_ustawienia.getSettings("ilosc_pozycji_na_strone")), (offset == null || offset == 0) ? 0 : (int)offset - 1);
+            ViewData["PostyTagi"] = _postTag.pobierzPorcjePoDacie(entryDate);
             ViewData["Komentarze"] = _komentarze.PobierzWszystkie();
             ////Lista(aktywna strona, liczba postow, elementów w porcji)
-            ViewData["Nawigacja"] = new List<int> { (offset == null || offset == 0) ? 1 : (int)offset, _postTag.ileWszystkichAktywnych(), Int16.Parse(_ustawienia.getSettings("ilosc_pozycji_na_strone")) };
+            ViewData["Nawigacja"] = new List<int> { 1, 1, 1 }; //dzięki temu nie będzie nawigacji
 
             return View("Index");
         } 
